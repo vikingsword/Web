@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <p>正则表达式是字符串搜索模式，这种字符串搜索模式是
+            用字符来描述、匹配某个句法规则的字符串搜索模式。
+        </p>
+        <p>正则表达式可用于所有文本搜索和文本替换的操作.</p>
+        <p>语法：/正则表达式主体/修饰符(可选)</p>
+        <br>
+
+        <p>搜索字符串 "Molly" 并显示匹配的起始位置。</p>
+        <button onclick="myFunction1()">点我</button>
+        <p id="demo1"></p>
+        <script>
+            function myFunction1(){
+                var str = "Hello Molly";
+                var n = str.search(/Molly/i);
+                var m = str.search("Molly");
+                document.getElementById("demo1").innerHTML =
+                n + "<br>" + m;
+            }
+        </script>
+        <br><br><br>
+
+
+        <p>替换 "Molly" 为 "Lily" :</p>
+        <button onclick="myFunction2()">点我</button>
+        <p id="demo2">Hello Molly!</p>
+        <script>
+            function myFunction2(){
+                var str = document.getElementById("demo2").innerHTML;
+                var text1 = str.replace(/Molly/i,"Lily");
+                var text2 = str.replace("Molly","Lily");
+                document.getElementById("demo2").innerHTML = 
+                text1 + "<br>" + text2;
+            }
+        </script>
+        <br><br><br>
+
+
+        <p>test() 方法用于检测一个字符串是否匹配某个模式，
+            如果字符串中含有匹配的文本，则返回 true，
+            否则返回 false
+        </p>
+        <p id="demo3"></p>
+        <script>
+            var patt = /e/;
+            var patt1 = new RegExp("e");
+            document.getElementById("demo3").innerHTML = 
+            patt.test("You are suck") + "<br>" + 
+            /e/.test("life is trash") + "<br>" +
+            patt1.test("let me out!");
+        </script>
+        <br>
+
+        
+        <p>exec() 方法用于检索字符串中的正则表达式的匹配。
+            该函数返回一个数组，其中存放匹配的结果。
+            如果未找到匹配，则返回值为 null。
+        
+        </p>
+        <p id="demo4"></p>
+        <script>
+            document.getElementById("demo4").innerHTML = 
+            /e/.exec("if it's gonna heppen,it's gonna heppen.");
+        </script>
+    </body>
+</html>

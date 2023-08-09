@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>userManager</title>
+    <meta name="viewport" content="width = device-width,initial-scale = 1">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css"
+    href="http://cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
+    <!-- jQuery -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf8"
+    src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+
+
+    <style>
+        #wrap{
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 7px;
+            margin-right: 3px;
+            /* float: right; */
+        }
+        #button1,#button2,#button3{
+            float:right;
+            border-radius: 7px;
+            border: none;
+            margin-right: 4px;
+        }
+        #tabletest{
+            width: 1100px;
+            position: relative;
+            background-color: #F4FAFE;
+            border: 1px;
+        }
+        table,table thead tr th, table tbody tr td { 
+            border:1px solid #ccc;
+            text-align: center;
+        } 
+       #div1,#div2{
+           display: inline;
+       }
+
+       .black_overlay {
+            display: none;
+            /* 此元素不会被显示*/
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: #bbbbbb;
+            z-index: 1001;
+            /* z-index 属性设置元素的堆叠顺序。*/
+            opacity: .80;
+            /* opacity 属性设置元素的不透明级别。*/
+        }
+
+        .white_content {
+            display: none;
+            position: absolute;
+            top: 20%;
+            border: 1px solid #bbbbbb;
+            border-radius: 20px;
+            background-color: white;
+            z-index: 1002;
+            /*层级要比.black_overlay高，这样才能显示在它前面*/
+            overflow: auto;
+        }
+
+        #light {
+            position: absolute;
+            left: 50%;
+            /* top: 50%; */
+            width: 300px;
+            height: 250px;
+            margin-left: -150px;
+            /* margin-top: -125px */;
+        }
+
+        #form_submit {
+            text-align: center;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        #adduser {
+            font-weight: 400;
+            font-size: 20px;
+            color: #BBBBBB;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .adduserinput{
+            width: 150px;
+            height: 22px;
+            border-radius: 3px;
+            border: 1px solid gainsboro;
+        }
+
+        .button_beautiful {
+            width: 60px;
+            height: 34px;
+            /* 高度 */
+            border-width: 0px;
+            border-radius: 6px;
+            background: #4ECDC4;
+            cursor: pointer;
+            outline: none;
+            color: white;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
+
+    <script>
+        $(function(){
+            $("#input1").keyup(function(){
+                var input, filter, table, tr, td, i , j , txtValue , cells;
+                input = document.getElementById("input1");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("tabletest");
+                tr = table.getElementsByTagName("tr");
+                // 循环遍历所有列表项，并隐藏那些与搜索查询不匹配的项
+                for (i = 0; i < tr.length; i++) {
+                    // cells = document.getElementById("tabletest").rows.item(0).cells.length;
+                    td = tr[i].getElementsByTagName("td")[1];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                    
+                }
+            })
+            
+        })
+    </script>
+
+    <!-- <script type="text/javascript">
+        $(function () {
+            $("#tabletest").DataTable({
+                // 是否允许排序
+                "ordering": true
+            });
+            // $('thead th.number').data('sortBy', function(th, td, sorter) {
+            //     return parseInt(td.text(), 10);
+            // });
+        });
+    </script> -->
+    
+</head>
+<body>
+    <div class="container mt-3" style="background-color: #EDF7FA; width: 1300px; height: 40px;position: relative;margin-top: 20px;" >
+        
+        <div class="row" >
+            <div class="col-3 " style="position: absolute; margin-left: 3px;margin-top: 7px;">
+                北京科麦--用户管理
+            </div>
+            <div id = "wrap" style="position: absolute;">
+                <input id="button1" class="col-1 text-white" style="float:right;background-color: #23BB65" type="button" value="增加用户" 
+                       onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"/>
+                <input id="button2" class="col-1 text-white" style="float:right;background-color: #F3453F" type="button" value="删除用户"/>
+                <input id="button3" class="col-1 text-white" style="float:right;background-color: #00B7F3" type="button" value="修改用户"/>
+            </div>
+       
+        </div>
+    </div>
+
+    <!-- 增加用户部分代码 -->
+    <div id="light" class="white_content">
+        <div id="adduser">增加用户</div>
+        <form action="" method="post" id="form_submit">
+            用户id:&nbsp;<input type="text" name="" id="userid" class="adduserinput" value=""/><br>
+            姓名:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="username" class="adduserinput" value="" /></br>
+            性别:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="sex" class="adduserinput" value=""></br>
+            <input id="adduserbutton" type="button" value="确认" class="button_beautiful ceshi" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"/> <!-- 不要点击 -->
+            <input type="button" value="取消" class="button_beautiful" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" />
+        </form>
+    </div>
+    <div id="fade" class="black_overlay"></div>
+ 
+
+    <!--条目数量显示代码-->
+    <div class="container mt-3" style="width: 1300px; height: 5px;">
+        <div id="div1">
+            <span>显示:</span>
+            <select id="pageselect" style="border-radius: 3px;width: 50px;">
+                <option>10</option>
+                <option>20</option>
+                <option>30</option>
+                <option>40</option>
+            </select>
+            <span>条</span>
+        </div>
+
+        <div id="div2" style="float:right;">
+            <span style="font-size: 15px;">从当前用户中检索: &nbsp;</span>
+            <input type="text" id="input1" style="width: 150px; height: 20px;">
+        </div>
+            
+     </div>
+     <br>
+     
+
+     <div class="container mt-3" >
+        <table class="display" id="tabletest">
+            <thead>
+                <tr>
+                <!-- <th style="width: 32px; text-align: center; background-color: #EFEFEF;" name = "check">
+                   <input type="checkbox" name="checkbox" value="checkbox"/>
+                </th> -->
+                <th class="number" width="162" Name="columnname" EditType="TextBox">用户id</th>
+                <th width="112" Name="datatype" EditType="DropDownList">姓名</th>
+                <th width="172" Name="length" EditType="TextBox">性别</th>
+                <th width="112" Name="primarykey" EditType="DropDownList">是否使用</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <tr>
+                    <td>1</td>
+                    <td>zs</td>
+                    <td>男</td>
+                    <td>N</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>ls</td>
+                    <td>女</td>
+                    <td>N</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>wu</td>
+                    <td>男</td>
+                    <td>N</td>
+                </tr>
+            </tr>
+            </tbody>
+            
+        </table>
+    </div>
+    
+</body>
+</html>

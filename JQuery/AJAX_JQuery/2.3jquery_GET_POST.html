@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+    <script>
+        $(function(){
+            $("button").click(function(){
+                $.post("um.km",{
+                    userId:"1",
+                    userName:"zs"
+                },function(data,status){
+                    alert("数据:" + data + "\n状态：" + status);
+                })
+            })
+        })
+    </script>
+
+    <script>
+        $(function(){
+            $("button").click(function(){
+                $.post("um.km",{
+                    userId:"1",
+                    userName: "zs"
+                },function(data,status){
+                    document.getElementById("demo").innerHTML = data;
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <p id="demo">显示在这里</p>
+    <button type="button">点击</button>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            /*箭头向上*/
+            .to_top {
+                width: 0;
+                height: 0;
+                margin-bottom: 1px;
+                border-bottom: 10px solid #ccc;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+            }
+            /*箭头向下*/
+            .to_bottom {
+                width: 0;
+                height: 0;
+                margin-top: 1px;
+                border-top: 10px solid #ccc;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+            }
+           
+        </style>
+    </head>
+
+    <body>
+        <p>向上箭头</p>
+        <div class="to_top"></div>
+        <p>向下箭头</p>
+        <div class="to_bottom"></div>
+
+        <p>上下箭头</p>
+        <div>
+            <div class="to_top"></div>
+            <div class="to_bottom"></div>
+        </div>
+    </body>
+</html>

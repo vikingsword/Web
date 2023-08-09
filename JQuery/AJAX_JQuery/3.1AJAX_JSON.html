@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AJAX_JQuery</title>
+<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+
+    <script>
+        $(function(){
+            $.ajax({
+                url:'data.json',
+                type:'get',
+                dataType:'json',
+                success:function(data){
+                    //方法中传入的参数data为后台获取的数据
+                    for(i in data.data) //data.data指的是数组，数组里是8个对象，i为数组的索引
+                    {
+                        var tr;
+                        tr='<td>'+data.data[i].id+'</td>'+'<td>'+data.data[i].name+'</td>'+'<td>'+data.data[i].age+'</td>'
+                        $("#tabletest").append('<tr>'+tr+'</tr>')
+                    }
+                }
+            })
+        })
+    </script>
+
+    <!-- <script>
+            $(function(){
+                $.ajax({
+                url:'data.json',
+                type:'get',
+                dataType:'json',
+                success:function(data){
+                    $.each(data.data,function(index,item){
+                        var tr;
+                        tr='<td>'+item.id+'</td>'+'<td>'+item.name+'</td>'+'<td>'+item.age+'</td>'
+                        $("#tabletest").append('<tr>'+tr+'</tr>')
+                    })
+                }
+            })})
+    </script> -->
+   
+</head>
+<body>
+    <table class="table table-bordered" id='tabletest'>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>age</th>
+        </tr>
+     </table>
+</body>
+</html>

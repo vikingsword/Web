@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+</head>
+<body onload="checkCookies()">
+
+    
+    <script>
+        function checkCookies() {
+            if(navigator.cookieEnabled == true) {
+                alert("Cookies 可用");
+            } else {
+                alert("Cookies不可用");
+            }
+        }
+    </script>
+    <p>弹窗-提示浏览器 cookie 是否可用。</p>
+    <br><br>
+
+    input u name :<input id="demo" type="text" onchange="myFunction()">
+    <script>
+        function myFunction(){
+            var x = document.getElementById("demo");
+            x.value = x.value.toUpperCase();
+        }
+    </script>
+    <br><br>
+
+    <div onmouseover="mOver(this)" onmousedown="mOut(this)"
+    style="background-color:#D94A38;width:120px;height:20px;padding:40px;">
+        Mouse Over Me
+    </div>
+    <script>
+        function mOver(o) {
+            o.innerHTML = "123";
+        }
+        function mOut(o) {
+            o.innerHTML = "3242";
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+	
+</body>
+</html>

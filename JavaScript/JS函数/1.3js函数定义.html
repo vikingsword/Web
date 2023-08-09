@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JavaScript函数定义</title>
+</head>
+<body>
+
+    <h2>JavaScript 箭头函数</h2>
+    <p>箭头函数不需要使用 function、return 关键字及大括号 {}。</p>
+    <p>IE11 及更早 IE 版本不支持箭头函数。</p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <form name="myForm" action="demo.php" method="POST" onsubmit="return y">
+        姓名： <input name="fname" type="text">
+        <input type="submit" value="提交">
+    </form>
+    <script>
+        const x = (x,y) => x * y;
+        document.getElementById("demo1").innerHTML = x(3,5);
+    </script>
+    <script>
+        const y = () => {
+            var x = document.forms["myForm"]["fname"].value;
+            var y = "123";
+            return x + y;
+        }
+        document.getElementById("demo2").innerHTML = y();
+    </script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+

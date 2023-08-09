@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>组合选择符</title>
+        <style>
+            div.a p{
+                background-color: lightblue;
+            }
+
+            div.b>p{
+                background-color: lightcoral;
+            }
+
+            div.c+p{
+                background-color: yellow;
+            }
+
+            div.d~p{
+                background-color: lightgreen;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="a">
+            <p>paragraph 1 in the div.</p>
+            <p>paragraph 2 in the div</p>
+        </div>
+        <p>paragraph 3 not in the div</p>
+        <p>paragraph 4 not in the div</p>
+        <br><br><br>
+
+
+        <h1>Welcome to My Homepage</h1>
+        <div class="b">
+            <h2>My name is Donald</h2>
+            <p>I live in Duckburg.</p>
+        </div>
+        <div class="b">
+            <span><p>I will not be styled.</p></span>
+        </div>
+        <p>My best friend is Mickey.</p>
+        <br><br><br>
+
+
+        <h2>heading</h2>
+        <div class="c">
+            <h3>DIV内部标题</h3>
+            <p> DIV内部段落</p>
+        </div>
+        <p>DIV之后的第一个P元素</p>
+        <p>DIV之后的第二个P元素</p>
+        <br><br><br>
+
+
+        <p>之前的段落不会添加背景颜色</p>
+        <div class="d">
+            <p>Paragraph 1 in the div block.</p>
+            <p>Paragraph 2 in the div block.</p>
+        </div>
+        <p>Paragraph 3 is not in the div block.</p>
+        <p>Paragraph 4 is not in the div block.</p>
+
+    </body>
+</html>

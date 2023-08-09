@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf=8">
+        <title>jquery</title>
+        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+        
+        <script>
+            $(function(){
+                $("#button1").click(function(){
+                    $("#demo1").toggle();
+                });
+            });
+        </script>
+        
+        
+
+    </head>
+
+    <body>
+        <button type="button" id="button1">隐藏/显示</button>
+        <p id = "demo1">隐藏、显示这里</p>
+
+        <table border="1px">
+            <tr>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+        </table>
+    </body>
+</html>

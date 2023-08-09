@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>对齐1</title>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+            }
+            .container{
+                position: relative;
+                width: 100%;
+            }
+            .right1{
+                position:absolute;
+                right: 0px;
+                width: 300px;
+                background-color: lightblue;
+            }
+
+            .right2{
+                float:right;
+                width: 300px;
+                border:3px solid lightcoral;
+                padding: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="right1">
+                <p>
+                    <b>注意：</b>
+                    当使用浮动属性对齐,总是包括 !DOCTYPE 声明!如果丢失,它将会在 IE 浏览器产生奇怪的结果。
+                </p>
+            </div>
+        </div><br><br><br><br><br><br>
+
+        <h2>右对齐</h2>
+        <p>以下实例演示了使用 float 属性来实现右对齐:</p>
+        <div class="right2">
+        <p>我老爹在小时候给我的一些人生建议，我现在还记忆深刻。</p>
+        </div>
+    </body>
+</html>

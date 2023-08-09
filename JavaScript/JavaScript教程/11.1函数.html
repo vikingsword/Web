@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <script>
+            function myFunction1(){
+                alert("Welcome!");
+            }
+        </script>
+        <button  onclick="myFunction1()">点我</button>
+        <img src="./picture/1.jpg" onclick="myFunction1()">
+        <br><br><br>
+
+
+        <p>点击下方按钮调用带参数的函数。</p>
+        <button onclick="myfunction2('Holly Wolf','Witch')">点击</button>
+        <script>
+            function myfunction2(name,job){
+                alert("Welcome " + name + " , the " + job);
+            }
+        </script>
+        <br><br><br>
+
+
+        <p>本例调用的函数会执行一个计算，然后返回结果：</p>
+        <p id="demo3"></p>
+        <script>
+            function myFunction3(a,b){
+                return a*b;
+            }
+            document.getElementById("demo3").innerHTML = myFunction3(3,4);
+        </script>
+        
+
+    </body>
+</html>

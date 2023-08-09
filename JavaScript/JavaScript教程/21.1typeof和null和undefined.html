@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <p> typeof 操作符返回变量或表达式的类型。</p>
+        <p id="demo1"></p>
+        <script>
+        document.getElementById("demo1").innerHTML = 
+            typeof "john" + "<br>" + 
+            typeof 3.14 + "<br>" +
+            typeof false + "<br>" +
+            typeof [1,2,3,4] + "<br>" +
+            typeof {name:'john', age:34};
+        </script>
+        <br><br><br>
+
+
+        <p>对象可以通过设置为 <b>null</b> 来清空。</p>
+        <p id="demo2"></p>
+        <script>
+        var person1 = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+        var person1 = null;  // 值为 null(空), 但类型为对象
+        document.getElementById("demo2").innerHTML = typeof person1;
+        </script>
+        <br><br><br>
+
+
+        <p>对象可以设置为 <b>undefined</b> 来清空。</p>
+        <p id="demo3"></p>
+        <script>
+        var person2 = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+        var person2 = undefined;
+        document.getElementById("demo3").innerHTML = typeof person2;
+        </script>
+        <br><br><br>
+
+
+        <p>变量的值如果不存在则该变量值为 <b>undefined</b>。</p>
+        <p id="demo4"></p>
+        <script>
+            var person3;
+            document.getElementById("demo4").innerHTML = 
+            person3 + "<br>" + typeof person;
+        </script>
+        <br><br><br>
+
+
+        <p>变量可以通过设置 <b>undefined</b> 来清空。</p>
+        <p id="demo5"></p>
+        <script>
+        var person4 = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+        var person4 = undefined;
+        document.getElementById("demo5").innerHTML =
+            person4 + "<br>" + typeof person4;
+        </script>
+        <br><br><br>
+
+        
+        <!--null 和 undefined 的值相等，但类型不等：-->
+        <p id="demo6"></p>
+        <script>
+            document.getElementById("demo6").innerHTML = 
+            typeof null + "<br>" + typeof undefined + "<br>" +
+            (null==undefined) + "<br>" + (null===undefined) + "<br>";
+        </script>
+        <br><br><br>
+
+
+    </body>
+</html>

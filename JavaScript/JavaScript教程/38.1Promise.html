@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <script>
+            function print(delay,message) {
+                return new Promise(function(resovle,reject){
+                    setTimeout(function(){
+                        console.log(message);
+                        resovle();
+                    },delay);
+                });
+            }
+
+            // print(1000,"First").then(function(){
+            //     return print(4000,"Second");
+            // }).then(function(){
+            //     print(3000,"Third");
+            // });
+
+
+            async function asyncFunc() {
+                await print(1000, "First");
+                await print(4000, "Second");
+                await print(3000, "Third");
+            }
+            asyncFunc();
+        </script>
+
+        
+    </body>
+</html>

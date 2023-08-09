@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript</title>
+    </head>
+
+    <body>
+
+        <!-- <p id = "demo"></p>
+
+        <script>
+            class User{
+                constructor(name,year) {
+                    this.name = name;
+                    this.year = year;
+                }
+                age(){
+                    let date = new Date();
+                    return date.getFullYear() - this.year;
+                }
+            }
+            var user = new User("zs",2000);
+            document.getElementById("demo").innerHTML = user.age();
+         
+        </script> -->
+
+        <p id="demo2"></p>
+        <script>
+            class User2{
+                constructor(name,year) {
+                    this.name = name;
+                    this.year = year;
+                }
+                age(x) {
+                    return x - this.year;
+                }
+            }
+            let user = new User2("zs",2000);
+            let date = new Date();
+            let year = date.getFullYear();
+            document.getElementById("demo2").innerHTML = user.age(year);
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+    </body>
+</html>

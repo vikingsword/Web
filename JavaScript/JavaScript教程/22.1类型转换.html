@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <p> typeof 操作符返回变量、对象、函数、表达式的类型。</p>
+        <p id="demo1"></p>
+        <script>
+            document.getElementById("demo1").innerHTML = 
+            typeof "John";                 // 返回 string
+            typeof 3.14;                   // 返回 number
+            typeof NaN;                    // 返回 number
+            typeof false;                  // 返回 boolean
+            typeof [1,2,3,4];              // 返回 object
+            typeof {name:'John', age:34};  // 返回 object
+            typeof new Date();             // 返回 object
+            typeof function () {};         // 返回 function
+            typeof myCar;                  // 返回 undefined (如果 myCar 没有声明)
+            typeof null;                   // 返回 object
+        </script>
+        <br><br><br>
+
+
+        <p> constructor 属性返回变量或对象的构造函数。</p>
+        <p id="demo2"></p>
+        <script>
+        document.getElementById("demo2").innerHTML = 
+            "john".constructor + "<br>" +
+            (3.14).constructor + "<br>" +
+            false.constructor + "<br>" +
+            [1,2,3,4].constructor + "<br>" +
+            {name:'john', age:34}.constructor + "<br>" +
+            new Date().constructor + "<br>" +
+            function () {}.constructor;
+        </script>
+        <br><br><br>
+
+        
+        <!--不是很懂-->
+        <p>判断是否为数组。</p>
+        <p id="demo3"></p>
+        <script>
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo3").innerHTML = isArray(fruits);
+        function isArray(myArray) {
+            return myArray.constructor.toString().indexOf("Array") > -1;
+        }
+        </script>
+        <br><br><br>
+
+
+        <p>判断是否为日期。</p>
+        <p id="demo4"></p>
+        <script>
+            var myDate = new Date();
+            document.getElementById("demo4").innerHTML = isDate(myDate);
+            function isDate(myDate){
+                return myDate.constructor.toString().indexOf("Date") > -1;
+            }
+        </script>
+        <br><br><br>
+        ​
+
+
+
+
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+
+    <body>
+        <!--函数的自调用----常见！！！-->
+        <p id="demo1"></p>
+        <script>
+            (function(a){
+                document.getElementById("demo1").innerHTML = a * a;
+            })(2);
+        </script>
+
+        <!--以前的写法-->
+        <p id="demo2"></p>
+        <script>
+            function myf1(a) {
+                document.getElementById("demo2").innerHTML = a * a;
+            }
+        </script>
+        点击即调用：<input onclick="myf1(2)">
+
+        <p id = "demo3"></p>
+        <script>
+            function myf2(a) {
+                return a * a;
+            }
+            document.getElementById("demo3").innerHTML = myf2(3) * 3;
+        </script>
+
+
+        <p> arguments.length 属性返回函数接收到参数的个数：</p>
+        <p id="demo4"></p>
+        <script>
+            (function(a,b){
+                document.getElementById("demo4").innerHTML = arguments.length;
+                document.getElementById("demo4").innerHTML = a * b;
+            })(3,4,3);
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

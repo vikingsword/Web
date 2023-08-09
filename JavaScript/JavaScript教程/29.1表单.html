@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+        <script>
+            function validateForm() {
+                var x = document.forms["myForm"]["fname"].value;
+                if (x == null || x == "") {
+                    alert("需要输入名字。");
+                    return false;
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <form name="myForm" action="demo_form.php"
+        onsubmit="return validateForm()" method="post">
+        名字: <input type="text" name="fname">
+        <input type="submit" value="提交">
+        </form>
+        <br><br><br>
+
+
+        <h1>JavaScript 验证输入</h1>
+        <p>请输入 1 到 10 之间的数字：</p>
+        <input id="numb">
+        <button type="button" onclick="myFunction1()">提交</button>
+        <p id="demo1"></p>
+        <script>
+        function myFunction1() {
+            var x, text;
+            // 获取 id="numb" 的值
+            x = document.getElementById("numb").value;
+            // 如果输入的值 x 不是数字或者小于 1 或者大于 10，
+            //则提示错误 Not a Number or less than one or greater than 10
+            if (isNaN(x) || x < 1 || x > 10) {
+                text = "输入错误";
+            } else {
+                text = "输入正确";
+            }
+            document.getElementById("demo1").innerHTML = text;
+        }
+        </script>
+        <br><br><br>
+
+
+        <!--如果表单字段 (fname) 的值为空, required 属性会阻止表单提交-->
+        <form action="demo_form.php" method="post">
+        <input type="text" name="fname" required="required">
+        <input type="submit" value="提交">
+        </form>
+        <p>点击提交按钮，如果输入框是空的，浏览器会提示错误信息。</p>
+
+    </body>
+</html>

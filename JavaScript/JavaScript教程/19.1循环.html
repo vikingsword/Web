@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <script>
+            students = ["Bill","Bob","Molly","Peter","Lily"];
+            for(var i=0;i<students.length;i++){
+                document.write(students[i] + "<br>");
+            }
+            document.write("<br>");
+
+            for(var i=0;i<students.length;i++){
+                for(var j=0;j<students[i].length;j++){
+                    document.write(students[i][j] + " ");
+                }
+                document.write("<br>");
+            }
+        </script>
+        <br><br><br>
+
+        
+        <p>点击按钮循环代码5次。</p>
+        <button onclick="myFunction1()">点击这里</button>
+        <p id="demo1"></p>
+        <script>
+            function myFunction1(){
+                var x = "";
+                for(var i=0;i<5;i++){
+                    x = x + "该数字为 " + i + "<br>";
+                }
+                document.getElementById("demo1").innerHTML = x;
+            }
+        </script>
+
+
+    </body>
+</html>

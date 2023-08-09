@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <!--"use strict" 指令只允许出现在脚本或函数的开头。-->
+
+        <h1>使用 "use strict":</h1>
+        <h3>不允许使用未定义的变量。</h3>
+        <p>浏览器按下 F12 开启调试模式，查看报错信息。</p>
+        <script>
+            "use strict";
+            x = 3.14;
+        </script>
+        <br>
+
+
+        <h2>全局 "use strict" 声明.</h2>
+        <p>浏览器按下 F12 开启调试模式，查看报错信息。</p>
+        <script>
+            "use strict"
+            myFunction1();
+            function myFunction1(){
+                y = 3.14 ;
+            }
+        </script>
+        <br>
+
+
+        <h1>使用 "use strict":</h1>
+        <h3>不允许使用未定义的对象。</h3>
+        <p>浏览器按下 F12 开启调试模式，查看报错信息。</p>
+        <script>
+        "use strict";
+        x = {p1:10, p2:20};      // 报错 (x 未定义)
+        </script>
+        <br>
+
+
+        <h1>使用 "use strict":</h1>
+        <h3>不允许删除函数。</h3>
+        <p>浏览器按下 F12 开启调试模式，查看报错信息。</p>
+        <script>
+        "use strict";
+        function x(p1, p2) {}; 
+        delete x;  
+        </script>
+        <br>
+
+
+        <h1>使用 "use strict":</h1>
+        <h3>不允许变量重名。</h3>
+        <p>浏览器按下 F12 开启调试模式，查看报错信息。</p>
+        <script>
+        "use strict";
+        function x(p1, p1) {};   // 报错
+        </script>
+        <br>
+
+
+        <h1>使用 "use strict":</h1>
+        <h3>不允许使用八进制。</h3>
+        <p>浏览器按下 F12 开启调试模式，查看报错信息。</p>
+        <script>
+        "use strict";
+        var x = 010;             // 报错
+        </script>
+        <br>
+
+
+        <h1>使用 "use strict":</h1>
+        <h3>不允许使用转义字符。</h3>
+        <p>浏览器按下 F12 开启调试模式，查看报错信息。</p>
+        <script>
+        "use strict";
+        var x = \010;            // 报错
+        </script>
+        <br>
+
+
+        <h1>使用 "use strict":</h1>
+        <h3>不允许对只读属性赋值。</h3>
+        <p>浏览器按下 F12 开启调试模式，查看报错信息。</p>
+        <script>
+        "use strict";
+        var obj = {};
+        Object.defineProperty(obj, "x", {value:0, writable:false});
+        obj.x = 3.14;            // 报错
+        </script>
+        <br>
+        
+
+        <h1>使用 "use strict":</h1>
+        <h3>不允许对一个使用getter方法读取的属性进行赋值。</h3>
+        <p>浏览器按下 F12 开启调试模式，查看报错信息。</p>
+        <script>
+        "use strict";
+        var obj = {get x() {return 0} };
+        obj.x = 3.14;            // 报错
+        </script>
+        <br>
+
+
+        <h1>使用 "use strict":</h1>
+        <h3>不允许删除一个不允许删除的属性值。</h3>
+        <p>浏览器按下 F12 开启调试模式，查看报错信息。</p>
+        <script>
+        "use strict";
+        delete Object.prototype; // 报错
+        </script>
+        <br>
+
+
+        <h1>使用 "use strict":</h1>
+        <h3>变量名不能使用 "eval" 字符串。</h3>
+        <p>浏览器按下 F12 开启调试模式，查看报错信息。</p>
+        <script>
+        "use strict";
+        var eval = 3.14;         // 报错
+        </script>
+        <br>
+
+
+        <h1>使用 "use strict":</h1>
+        <h3>变量名不能使用 "arguments" 字符串。</h3>
+        <p>浏览器按下 F12 开启调试模式，查看报错信息。</p>
+        <script>
+        "use strict";
+        var arguments = 3.14;    // 报错
+        </script>
+        <br>
+
+
+        <h1>使用 "use strict":</h1>
+        <h3>不允许使用以下这种语句。</h3>
+        <p>浏览器按下 F12 开启调试模式，查看报错信息。</p>
+        <script>
+        "use strict";
+        with (Math){x = cos(2)}; // 报错
+        </script>
+        <br>
+
+
+        <h1>使用 "use strict":</h1>
+        <h3>由于一些安全原因，在作用域 eval() 创建的变量不能被调用。</h3>
+        <p>浏览器按下 F12 开启调试模式，查看报错信息。</p>
+        <script>
+        "use strict";
+        eval ("var x = 2");
+        alert (x);               // 报错
+        </script>
+        <br>
+
+
+        <script>
+            function f1(){
+                return !this;
+            } 
+            // 返回false，因为"this"指向全局对象，"!this"就是false
+
+            function f2(){ 
+                "use strict";
+                return !this;
+            } 
+            // 返回true，因为严格模式下，this的值为undefined，所以"!this"为true。
+        </script>
+        <br>
+
+
+        <script>
+            function f3(){
+                "use strict";
+                this.a = 1;
+            };
+            f3();// 报错，this未定义
+        </script>
+        <br>
+
+
+        <h1>使用 "use strict":</h1>
+        <h3>严格模式不允许使用保留关键字。</h3>
+        <p>浏览器按下 F12 开启调试模式，查看报错信息。</p>
+        <script>
+        "use strict";
+        var public = 1500;      // 报错
+        </script>
+        <!--
+            保留关键字有：
+            mplements
+            interface
+            let
+            package
+            private
+            protected
+            public
+            static
+            yield
+        -->
+
+        
+    </body>
+</html>

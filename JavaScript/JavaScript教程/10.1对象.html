@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <p>创建 JavaScript 对象。</p>
+
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+        <script>
+            var person = {
+                firstname : "Holly",
+                lastname  : "Wolf",
+                age       : 24,
+                eyeColor  : "blue"
+            };
+            document.getElementById("demo1").innerHTML = 
+            person.firstname + " is " + person.age + " years old.";
+            document.write("<br>");
+            document.getElementById("demo2").innerHTML = 
+            person["lastname"] + " has " + person["eyeColor"] + " eyes .";
+
+        </script>
+    </body>
+</html>

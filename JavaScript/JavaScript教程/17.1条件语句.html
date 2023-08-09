@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <p>如果时间早于 22:00，会获得问候 "Good day"。</p>
+        <button onclick="myFunction1()">点这里</button>
+        <p id="demo1"></p>
+        <script>
+            function myFunction1(){
+                var x = "";
+                var time = new Date().getHours();
+                if(time<22){
+                    x = "Good Day";
+                }
+                document.getElementById("demo1").innerHTML = x;
+            }
+        </script>
+        <br><br><br>
+
+        
+        <p>当时间小于 20:00 时，生成问候 "Good day"，否则生成问候 "Good evening"。</p>
+        <button onclick="myFunction2()">点这里</button>
+        <p id="demo2"></p>
+        <script>
+            function myFunction2(){
+                var x ;
+                var time = new Date().getHours();
+                if(time < 20){
+                    x = "Good day";
+                }
+                else{
+                    x = "Good evening";
+                }
+                document.getElementById("demo2").innerHTML = x ;
+            }
+        </script>
+        <br><br><br>
+
+
+        <p>如果时间小于 10:00，则生成问候 "Good morning"，
+        如果时间大于 10:00 小于 20:00，则生成问候 "Good day"，
+        否则生成问候 "Good evening"：</p>
+        <button onclick="myFunction3()">点这里</button>
+        <p id="demo3"></p>
+        <script>
+            function myFunction3(){
+                var x ;
+                var time = new Date().getHours();
+                if(time < 10){
+                    x = "Good morning";
+                }
+                else if(time < 20){
+                    x = "Good day";
+                }
+                else{
+                    x = "Good evening";
+                }
+                document.getElementById("demo3").innerHTML = x;
+            }
+        </script>
+
+
+    </body>
+</html>

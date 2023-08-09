@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <p>String()方法可以将数字转换为字符串。</p>
+        <p id="demo1"></p>
+        <script>
+            var x = 123;
+            document.getElementById("demo1").innerHTML = 
+            String(x) + "<br>" +
+            String(123) + "<br>" +
+            String(100 +23);
+        </script>
+        <br>
+
+        <p>Number方法toString()也可将数字转换为字符。</p>
+        <p id="demo2"></p>
+        <script>
+            var x = 123;
+            document.getElementById("demo2").innerHTML = 
+            x.toString() + "<br>" + 
+            (123).toString() + "<br>" +
+            (100+23).toString();
+        </script>
+        <br>
+
+        <p>String()与Boolean方法toString()可将布尔值转化为字符串。</p>
+        <p id="demo3"></p>
+        <script>
+            document.getElementById("demo3").innerHTML = 
+            String(false) + "<br>" + String(true) + "<br>" +
+            true.toString() + "<br>" + false.toString();
+        </script>
+        <br>
+
+        <p>String()与toString()将日期转化为字符串。</p>
+        <p id="demo4"></p>
+        <script>
+            document.getElementById("demo4").innerHTML = 
+            String(new Date()) + "<br>" + 
+            new Date().toString() + "<br>";
+        </script>
+        <br><br><br>
+
+
+        
+
+
+
+    </body>
+</html>

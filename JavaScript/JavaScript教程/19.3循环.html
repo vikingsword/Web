@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <p>点击下面的按钮，只要 i 小于 5 就一直循环代码块。</p>
+        <button onclick="myFunction1()">点击这里</button>
+        <p id="demo1"></p>
+        <script>
+            function myFunction1(){
+                var x ,i = 0;
+                while(i<5){
+                    x = "该数字为 " + i + "<br>";
+                    document.getElementById("demo1").innerHTML = x;
+                    i++;
+                }
+            }
+        </script>
+    </body>
+</html>

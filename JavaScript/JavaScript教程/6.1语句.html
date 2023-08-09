@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <p id="demo1"></p>
+        <p id="demo2">我是一个段落</p>
+        <div id="demo3">我是一个div</div>
+        <p>
+            <button type="button" onclick="myFunction()">点击这里</button>
+        </p>
+        <script>
+            document.getElementById("demo1").innerHTML = "你好 Holly Red Wolf";
+
+            function myFunction(){
+                document.getElementById("demo2").innerHTML = "Hello Holly"
+                document.getElementById("demo3").innerHTML = "Are you OK?"
+            }
+
+            document.write("你好\
+            \世界！");
+        </script>
+        <p>当您点击上面的按钮时，两个元素会改变。</p>
+    </body>
+</html>

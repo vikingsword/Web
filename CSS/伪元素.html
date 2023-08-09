@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>伪元素</title>
+        <style>
+            p.a:first-line{
+                color: #ff0000;
+                font-variant: small-caps;
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 20px;
+                text-align: center;
+            }
+
+            p.b::first-letter{
+                color:#ff0000;
+                font-size: xx-large;
+            }
+
+            p.c::first-letter{
+                color: #ff0000;
+                font-size: xx-large;
+            }
+            p.c:first-line{
+                color: #0000ff;
+                font-variant: small-caps;
+            }
+
+            h1.a::before{
+                content:url(./picture/1.jpg)
+                
+            }
+            h1.b::after{
+                content: url(./picture/1.jpg);
+            }
+        </style>
+    </head>
+
+    <body>
+        <p class="a">你可以使用 "first-line" 伪元素向文本的首行设置特殊样式。</p>
+        <br><br>
+
+
+        <p class="b">你可以使用 "first-letter" 伪元素向文本的首字母设置特殊样式：</p>
+        <br><br>
+
+
+        <p class="c">你可以结合使用"first-line"和"first-letter"伪元素向文本的首行和首字母
+            设置特殊样式。</p>
+        <br><br>
+
+
+        <h1 class="a">This is a heading</h1>
+        <p>The :before pseudo-element inserts content before an element.</p>
+        <h1 class="a">This is a heading</h1>
+        <p><b>注意:</b>仅当 !DOCTYPE 已经声明 IE8 支持这个内容属性</p>
+        <br><br><br><br>
+
+        <h1 class="b">This is a heading</h1>
+        <p>The :after pseudo-element inserts content after an element.</p>
+        <h1 class="b">This is a heading</h1>
+        <p><b>注意:</b>仅当!DOCTYPE 已经声明 IE8支持这个内容属性.</p>
+
+    </body>
+</html>

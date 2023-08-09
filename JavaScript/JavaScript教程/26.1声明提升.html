@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <!--声明提升：函数声明和变量声明总是会被解释器
+            悄悄地被"提升"到方法体的最顶部。-->
+        <p id="demo1"></p>
+        <script>
+            x = 5 ;
+            document.getElementById("demo1").innerHTML = x ;
+            var x;
+        </script>
+        <br>
+
+        <p id="demo2"></p>
+        <script>
+            var x ;
+            x = 5 ;
+            document.getElementById("demo2").innerHTML = x ;
+        </script>
+        <br><br><br>
+
+
+        <!--JavaScript 只有声明的变量会提升，初始化的不会-->
+        <p id="demo3"></p>
+        <script>
+            var x = 5 ;
+            var y = 7 ;
+            document.getElementById("demo3").innerHTML = x + "   " + y ;
+        </script>
+        <br>
+
+        <p id="demo4"></p>
+        <script>
+            var m = 5 ;
+            document.getElementById("demo4").innerHTML = m + "   " + n ;
+            var n = 7 ;
+        </script>
+
+        
+
+    </body>
+</html>

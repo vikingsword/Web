@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <p>回调函数等待 3 秒后执行。</p>
+        <p id="demo1"></p>
+        <script>
+        function print() {
+            document.getElementById("demo1").innerHTML="RUNOOB!";
+        }
+        setTimeout(print, 3000);
+        // setTimeout(function () {
+        //     document.getElementById("demo1").innerHTML="RUNOOB!";
+        // }, 5000);
+        </script>
+        <br><br><br>
+
+
+        <p>回调函数等待 3 秒后执行。</p>
+        <p id="demo2"></p>
+        <p id="demo3"></p>
+        <script>
+        setTimeout(function () {
+            document.getElementById("demo2").innerHTML="RUNOOB-1!";
+        }, 3000);
+        document.getElementById("demo3").innerHTML="RUNOOB-2!";
+        </script>
+        <br><br><br>
+
+
+        <p><strong>以下内容是通过异步请求获取的：</strong></p>
+        <p id="demo4"></p>
+        <script>
+        var xhr = new XMLHttpRequest();
+        
+        xhr.onload = function () {
+            // 输出接收到的文字数据
+            document.getElementById("demo4").innerHTML=xhr.responseText;
+        }
+        
+        xhr.onerror = function () {
+            document.getElementById("demo4").innerHTML="请求出错";
+        }
+        
+        // 发送异步 GET 请求
+        xhr.open("GET", "https://www.runoob.com/try/ajax/ajax_info.txt", true);
+        xhr.send();
+        </script>
+        <br><br><br>
+
+
+
+
+    </body>
+</html>

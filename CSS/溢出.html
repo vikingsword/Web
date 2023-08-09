@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            #overflowText{
+                background-color: lightgreen;
+                padding: 15px;
+                width: 200px;
+                height: 250px;
+                overflow: scroll;
+                border: 1px solid #ccc;
+            }
+            #visible{
+                background-color: lightpink;
+                width: 200px;
+                height: 50px;
+                border: 1px dotted black;
+                overflow: visible;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div id="overflowText">
+            <p>这里的文本内容是可以滚动的，滚动条方向是垂直方向。</p>
+            <p>这里的文本内容是可以滚动的，滚动条方向是垂直方向。</p>
+            <p>这里的文本内容是可以滚动的，滚动条方向是垂直方向。</p>
+            <p>这里的文本内容是可以滚动的，滚动条方向是垂直方向。</p>
+            <p>这里的文本内容是可以滚动的，滚动条方向是垂直方向。</p>
+            <p>这里的文本内容是可以滚动的，滚动条方向是垂直方向。</p>
+        </div>
+        <br><br>
+
+        <div id="visible">
+            <p>这里的文本内容会溢出元素框。</p>
+            <p>这里的文本内容会溢出元素框。</p>
+            <p>这里的文本内容会溢出元素框。</p>
+        </div>
+        
+    </body>
+</html>

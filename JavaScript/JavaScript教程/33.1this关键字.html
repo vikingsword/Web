@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <h2>JavaScript <b>this</b> 关键字</h2>
+        <p>实例中，<b>this</b> 指向了 <b>person</b> 对象。</p>
+        <p>因为 person 对象是 fullName 方法的所有者。</p>
+        <p id="demo1"></p>
+        <script>
+        // 创建一个对象
+        var person1 = {
+        firstName: "John",
+        lastName : "Doe",
+        id     : 5566,
+        fullName1 : function() {
+            return this.firstName + " " + this.lastName;
+        }
+        };
+        // 显示对象的数据
+        document.getElementById("demo1").innerHTML = person1.fullName1();
+        </script>
+        <br><br><br>
+
+
+        <h2>JavaScript <b>this</b> 关键字</h2>
+        <p>实例中，<b>this</b> 指向了 <b>person</b> 对象。</p>
+        <p>因为 person 对象是 fullName 方法的所有者。</p>
+        <p id="demo2"></p>
+        <script>
+        // 创建一个对象
+        var person2 = {
+        firstName: "John",
+        lastName : "Doe",
+        id       : 5566,
+        fullName2 : function() {
+            return this.firstName + " " + this.lastName;
+        }
+        };
+        // 显示对象的数据
+        document.getElementById("demo2").innerHTML = person2.fullName2();
+        </script>
+        <br><br><br>
+
+
+        <h2>JavaScript <b>this</b> 关键字</h2>
+        <p>实例中，<b>this</b> 指向了 window 对象:</p>
+        <p id="demo3"></p>
+        <script>
+        "use strict";
+        var x = this;
+        document.getElementById("demo3").innerHTML = x;
+        </script>
+        <br><br><br>
+
+
+        <h2>JavaScript <b>this</b> 关键字</h2>
+        <p>实例中，<b>this</b> 表示 myFunction 函数的所有者：</p>
+        <p id="demo4"></p>
+        <script>
+        document.getElementById("demo4").innerHTML = myFunction4();
+        function myFunction4() {
+        return this;
+        }
+        </script>
+        <br><br><br>
+
+
+        <!--在 HTML 事件句柄中，this 指向了接收事件的 HTML 元素：-->
+        <h2>JavaScript <b>this</b> 关键字</h2>
+        <button onclick="this.style.display='none'">点我后我就消失了</button>
+        <br><br><br>
+
+
+        
+        
+    </body>
+</html>

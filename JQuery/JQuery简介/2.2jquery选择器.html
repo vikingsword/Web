@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jquery</title>
+        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+        <script>
+            $(function(){
+                $("#button1").click(function(){
+                    $(".demo1").hide();
+                })
+            });
+        </script>
+
+        <script>
+            $(function(){
+                $("#button2").click(function(){
+                    $("*").hide();
+                });
+            });
+        </script>
+
+        <script>
+            $(function(){
+                $("#button3").click(function(){
+                    $(this).hide();
+                });
+            });
+        </script>
+
+        <!-- <script>
+            $(function(){
+                $("#button4").click(function(){
+                    $("p.demo3").hide();
+                });
+            });
+        </script> -->
+        <script type="text/javascript" src="2.3jquery选择器.js"></script>
+    </head>
+
+    <body>
+        <button type="button" id="button1">点击1</button>
+        <button type="button" id="button2">点击2</button>
+        <button type="button" id="button3">点击3</button>
+        <button type="button" id="button4">点击4</button>
+        <p class="demo1">隐藏这里1</p>
+        <p class="demo2">隐藏这里2</p>
+        <p class="demo3">隐藏这里3</p>
+        
+    </body>
+
+
+
+
+
+    
+</html>

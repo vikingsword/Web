@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <p>字符串转化为数字。</p>
+        <p id="demo1"></p>
+        <script>
+            document.getElementById("demo1").innerHTML = 
+            Number("3.14") + "<br>" + Number(" ") + "<br>" +
+            Number("") + "<br>" + Number("44 33") + "<br>";
+        </script>
+        <br>
+
+        <p>Operator + 可用于将变量转换为数字</p>
+        <p  id="demo2"></p>
+        <button onclick="myFunction2()">点我</button>
+        <script>
+            function myFunction2(){
+            var a1 = "5";
+            var b1 = "John";
+            var c1 = + a1;
+            var d1 = + b1;
+            document.getElementById("demo2").innerHTML = 
+            typeof a1 + "<br>" + typeof c1 + "<br>" + typeof b1 + "<br>" + d1 + "<br>";
+            }
+        </script>
+        <br>
+
+        <p>全局方法 Number() 可将布尔值转换为数字。</p>
+        <p id="demo3"></p>
+        <script>
+            document.getElementById("demo3").innerHTML = 
+            Number(false) + "<br>" + Number(true);
+        </script>
+        <br>
+
+        <p>全局方法 Number() 与日期方法getTime()可将日期转换为数字。</p>
+        <p id="demo4"></p>
+        <script>
+            d = new Date();
+            document.getElementById("demo4").innerHTML = 
+            Number(d) + "<br>" + d.getTime();
+        </script>
+
+    </body>
+</html>

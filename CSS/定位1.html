@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>定位1</title>
+        <style>
+            img{
+                position: absolute;
+                clip: rect(0px,60px,200px,0px);
+            }
+
+            div.ex1{
+                background-color: lightcoral;
+                width: 110px;
+                height: 110px;
+                overflow: scroll;
+            }
+            div.ex2{
+                background-color: lightblue;
+                width: 110px;
+                height: 110px;
+                overflow: hidden;
+            }
+            div.ex3 {
+                background-color: lightcyan;
+                width: 110px;
+                height: 110px;
+                overflow: auto;
+            }
+            div.ex4 {
+                background-color: lightgoldenrodyellow;
+                width: 110px;
+                height: 110px;
+                overflow: visible;
+            }
+            span.a{
+                cursor: help;
+            }
+        </style>
+    </head>
+
+    <body>
+        <img src="./picture/2.jpg" width="100" height="140">
+        <br><br><br><br><br><br>
+
+        <h1>overflow 属性</h1>
+        <p>如果元素中的内容超出了给定的宽度和高度属性，overflow 属性可以确定是否显示滚动条等行为。</p>
+        <h2>overflow: scroll:</h2>
+        <div class="ex1">菜鸟教程 -- 学的不仅是技术，更是梦想！！！菜鸟教程 -- 学的不仅是技术，更是梦想！！！菜鸟教程 -- 学的不仅是技术，更是梦想！！！菜鸟教程 -- 学的不仅是技术，更是梦想！！！</div>
+        <h2>overflow: hidden:</h2>
+        <div class="ex2">菜鸟教程 -- 学的不仅是技术，更是梦想！！！菜鸟教程 -- 学的不仅是技术，更是梦想！！！菜鸟教程 -- 学的不仅是技术，更是梦想！！！菜鸟教程 -- 学的不仅是技术，更是梦想！！！</div>
+        <h2>overflow: auto:</h2>
+        <div class="ex3">菜鸟教程 -- 学的不仅是技术，更是梦想！！！菜鸟教程 -- 学的不仅是技术，更是梦想！！！菜鸟教程 -- 学的不仅是技术，更是梦想！！！菜鸟教程 -- 学的不仅是技术，更是梦想！！！</div>
+        <h2>overflow: visible (默认):</h2>
+        <div class="ex4">菜鸟教程 -- 学的不仅是技术，更是梦想！！！菜鸟教程 -- 学的不仅是技术，更是梦想！！！菜鸟教程 -- 学的不仅是技术，更是梦想！！！菜鸟教程 -- 学的不仅是技术，更是梦想！！！</div>
+        <br><br><br><br><br><br><br><br><br><br>
+
+
+        <p>请把鼠标移动到单词上，可以看到鼠标指针发生变化：</p>
+        <span class="a">HELP</span><br>
+        <span style="cursor:auto">auto</span><br>
+        <span style="cursor:crosshair">crosshair</span><br>
+        <span style="cursor:default">default</span><br>
+        <span style="cursor:e-resize">e-resize</span><br>
+        <span style="cursor:help">help</span><br>
+        <span style="cursor:move">move</span><br>
+        <span style="cursor:n-resize">n-resize</span><br>
+        <span style="cursor:ne-resize">ne-resize</span><br>
+        <span style="cursor:nw-resize">nw-resize</span><br>
+        <span style="cursor:pointer">pointer</span><br>
+        <span style="cursor:progress">progress</span><br>
+        <span style="cursor:s-resize">s-resize</span><br>
+        <span style="cursor:se-resize">se-resize</span><br>
+        <span style="cursor:sw-resize">sw-resize</span><br>
+        <span style="cursor:text">text</span><br>
+        <span style="cursor:w-resize">w-resize</span><br>
+        <span style="cursor:wait">wait</span><br>
+        <br><br><br><br>
+
+
+    </body>
+</html>

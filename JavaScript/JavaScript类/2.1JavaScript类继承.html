@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript</title>
+    </head>
+
+    <body>
+
+        <p id="demo1"></p>
+
+        <script>
+            class Animal{
+                constructor(name) {
+                    this.name = name;
+                }
+                yell(){
+                    return "hhhh";
+                }
+            }
+             
+            class Dog extends Animal{
+                constructor(name,age) {
+                    super(name);
+                    this.age = age;
+                }
+                shout(){
+                    return this.yell() + "aaaa";
+                }
+            }
+
+            let dog = new Dog("zs",22);
+            document.getElementById("demo1").innerHTML = dog.shout();
+
+        </script>
+        <br><br>
+
+        <p id="demo2"></p>
+        <script>
+            class Cat {
+                constructor(name){
+                    this.name = name;
+                }
+                get getName() {
+                    return this.name;
+                }
+                set Setname(x) {
+                    this.name = x;
+                }
+            }
+            // let cat = new Cat("zs");
+            // document.getElementById("demo2").innerHTML = cat.getName;
+            let cat  = new Cat();
+            cat.Setname = "zz";
+            document.getElementById("demo2").innerHTML = cat.getName;
+
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+    </body>
+</html>

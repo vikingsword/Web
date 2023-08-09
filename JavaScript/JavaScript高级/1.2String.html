@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>javascript</title>
+        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+       
+        <script>
+            // $(function(){
+            //     var str = "hello world";
+            //     var index = str.indexOf("world");
+            //     document.getElementById("demo1").innerHTML = index;
+            // })
+            // $(function(){
+            //     var str="Hello world!";
+            //     document.write(str.match("world") + "<br>");
+            //     document.write(str.match("World") + "<br>");
+            //     document.write(str.match("world!"));
+            // })
+            // $(function(){
+            //     var str = "a,b,c,d,e,f";
+            //     var n = str.split(",");
+            //     var i;
+            //     for(i in n){
+            //         document.write("<br>" + i);
+            //     }
+            // })
+            // $(function(){
+            //     $("#button1").click(function(){
+            //         var fruits = ["Banana", "Orange", "Apple", "Mango"];
+            //         document.getElementById("demo2").innerHTML = fruits.join();
+            //         // document.getElementById("demo3").innerHTML = fruits.reverse();
+            //         document.getElementById("demo4").innerHTML = fruits.pop();
+            //         fruits.push("abc");
+            //         document.getElementById("demo5").innerHTML = fruits;
+            //     });
+            // });
+            // $(function(){
+            //     $("#button1").click(function(){
+            //         var points = [40,100,1,5,25,10];
+            //         points.sort(function(a,b){return a-b;});
+            //         document.getElementById("demo4").innerHTML = points;
+            //         points.sort(function(a,b){return b-a;});
+            //         document.getElementById("demo5").innerHTML = points;
+            //     })
+            // })
+            $(function(){
+                $("#button1").click(function(){
+                    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+                    fruits.splice(2,0,"lemon");
+                    document.getElementById("demo5").innerHTML = fruits;
+                })
+            })
+        </script>
+    </head>
+
+    <body>
+        <p id="demo1">demo1</p>
+        <p id="demo2">demo2</p>
+        <p id="demo3">demo3</p>
+        <p id="demo4">demo4</p>
+        <p id="demo5">demo5</p>
+        <button id="button1" type="button">点击我</button>
+    </body>
+</html>

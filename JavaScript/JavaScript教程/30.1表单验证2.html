@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>javaScript测试</title>
+       <script>
+           function myFunction() {
+               var x = document.forms["myForm"]["myInput1"].value;
+               if(x == null || x == "") {
+                   alert("请输入姓氏");
+                   return;
+               }
+           }
+       </script>
+    </head>
+
+    <body>
+        <form name="myForm" action="demo.php" onsubmit="return myFunction()" method="POST">
+            姓氏：<input type="text" name="myInput1">
+            <input type="submit" value="提交">
+        </form>
+    </body>
+</html>

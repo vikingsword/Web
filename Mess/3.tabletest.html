@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>tabletest</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+       
+        <script>
+            //表格添加行    
+	function AddRow(table) {
+	    var lastRow = table.rows[table.rows.length - 1];
+	    var newRow = lastRow.cloneNode(true);  
+	    var length = table.rows.length; 
+	    table.tBodies[0].appendChild(newRow);
+	    newRow.cells[0].innerHTML = "<input type=\"checkbox\" name=\"checkbox\" value=\"checkbox\">"; 
+	    newRow.cells[0].setAttribute("id","new");
+	    newRow.cells[1].innerHTML = "example" 
+	    newRow.cells[2].innerHTML = "varchar" 
+		newRow.cells[2].setAttribute("value","varchar");
+		newRow.cells[3].innerHTML = "10"
+		newRow.cells[4].innerHTML = "false"
+	    newRow.cells[4].setAttribute("value","false");
+	    newRow.cells[5].innerHTML = "false"
+		newRow.cells[5].setAttribute("value","false");
+		newRow.cells[6].innerHTML = ""
+		//根据行号奇偶设置不同背景色
+		if(length%2 == 1){
+			newRow.cells[0].setAttribute("bgcolor","#FFFFFF");
+			newRow.cells[1].setAttribute("bgcolor","#FFFFFF");
+			newRow.cells[2].setAttribute("bgcolor","#FFFFFF");
+			newRow.cells[3].setAttribute("bgcolor","#FFFFFF"); 
+			newRow.cells[4].setAttribute("bgcolor","#FFFFFF");
+			newRow.cells[5].setAttribute("bgcolor","#FFFFFF");
+			newRow.cells[6].setAttribute("bgcolor","#FFFFFF");  
+		}else{
+			newRow.cells[0].setAttribute("bgcolor","#f2fbff");
+			newRow.cells[1].setAttribute("bgcolor","#f2fbff");
+			newRow.cells[2].setAttribute("bgcolor","#f2fbff");
+			newRow.cells[3].setAttribute("bgcolor","#f2fbff");
+			newRow.cells[4].setAttribute("bgcolor","#f2fbff");
+			newRow.cells[5].setAttribute("bgcolor","#f2fbff");
+			newRow.cells[6].setAttribute("bgcolor","#f2fbff");
+		}
+            //设置表格行可编辑
+	    SetRowCanEdit(newRow);
+	    return newRow;
+	
+	}
+    //设置表格行可编辑
+    function SetRowCanEdit(row) { 
+        for (var i = 0; i < row.cells.length; i++) { 
+            //当前单元格指定了编辑类型，允许编辑 
+            var editType = row.cells[i].getAttribute("EditType"); if (!editType) { 
+            //当前单元格没有指定，查看当前列是否指定 
+            editType = row.parentNode.rows[0].cells[i].getAttribute("EditType"); } 
+            if (editType) { 
+                row.cells[i].onclick = function() { EditCell(this); }
+             } 
+        }
+    }
+    //设置指定单元格可编辑
+    function EditCell(element, editType) { 
+        var editType = element.getAttribute("EditType"); 
+        if (!editType) { 
+            //如果当前单元格没有指定，则查看当前列是否指定 
+            editType = element.parentNode.parentNode.rows[0].cells[element.cellIndex].getAttribute("EditType"); 
+        } 
+        switch (editType) { 
+            case "TextBox":
+                CreateTextBox(element, element.innerHTML); 
+                break; 
+            case "DropDownList": 
+                CreateDropDownList(element); 
+                break; default: break; 
+         }
+     }
+    //为单元格创建可编辑输入框 
+    function CreateTextBox(element, value) { 
+        //编辑状态，true为编辑状态 
+        var editState = element.getAttribute("EditState"); 
+        if (editState != "true") { 
+            //创建文本框 
+            var textBox = document.createElement("INPUT"); 
+            textBox.style="width:100%"; 
+            textBox.type = "text"; 
+            textBox.className = "EditCell_TextBox"; 
+            //设置当前值 
+            if (!value) { 
+                value = element.getAttribute("Value"); 
+            } textBox.value = value; 
+            //设置失去焦点事件 
+            textBox.onblur = function() {CancelEditCell(this.parentNode, this.value); } 
+            //向当前单元格添加文本框 
+            ClearChild(element); 
+            element.appendChild(textBox); 
+            textBox.focus(); textBox.select(); 
+            //设置编辑状态 
+            element.setAttribute("EditState", "true"); 
+            element.parentNode.parentNode.setAttribute("CurrentRow", element.parentNode.rowIndex); }
+    }
+    //为单元格创建选择框 
+    function CreateDropDownList(element, value) { 
+        //编辑状态， true为编辑状态 
+        var editState = element.getAttribute("EditState"); 
+        if (editState != "true") { 
+            //创建下拉框 
+            var downList = document.createElement("Select"); 
+            downList.style="width:100%"; 
+            downList.className = "EditCell_DropDownList"; 
+            //添加列表项 
+            var items = element.getAttribute("DataItems"); 
+            if (!items) { 
+                items = element.parentNode.parentNode.rows[0].cells[element.cellIndex].getAttribute("DataItems");
+            } 
+            if (items) { 
+                items = eval("[" + items + "]"); 
+                for (var i = 0; i < items.length; i++) { 
+                    var oOption = document.createElement("OPTION"); 
+                    oOption.text = items[i].text; 
+                    oOption.value = items[i].value; downList.options.add(oOption); 
+                } 
+            } 
+            //设置列表当前值 
+            if (!value) { 
+                value = element.getAttribute("Value"); 
+            } downList.value = value; 
+            //设置下拉框失去焦点事件 
+            downList.onblur = function() { 
+                CancelEditCell(this.parentNode, this.value, this.options[this.selectedIndex].text); 
+            } 
+            //向当前单元格添加下拉框 
+            ClearChild(element); 
+            element.appendChild(downList); 
+            downList.focus(); 
+            //设置编辑状态 
+            element.setAttribute("EditState", "true"); 
+            element.parentNode.parentNode.setAttribute("LastEditRow", element.parentNode.rowIndex); 
+        }
+    }
+    //取消单元格编辑状态 
+    function CancelEditCell(element, value, text) { 
+        element.setAttribute("Value", value); 
+        if (text) { 
+            element.innerHTML = text; 
+        } else { 
+            element.innerHTML = value; 
+        } element.setAttribute("EditState", "false"); 
+    }
+    //清空指定对象的所有字节点 
+    function ClearChild(element) { 
+        element.innerHTML = "";
+    }
+    //删除行 
+    function DeleteRow(table) { 
+        for (var i = table.rows.length - 1; i > 0; i--) { 
+            var chkOrder = table.rows[i].cells[0].firstChild; 
+            if (chkOrder) { 
+                if (chkOrder.type = "CHECKBOX") { 
+                    if (chkOrder.checked) { 
+                        table.deleteRow(i); 
+                    } 
+                } 
+            } 
+        }
+    }
+    //提取表格所有值,JSON格式，可以将该值赋予一个隐藏的input标签，提交表单至后台进行处理 
+    function GetTableData() {    
+        var table = document.getElementById("filedTable");     
+        var Obj = {Mark:"",Columnname:"",Datatype:"",Length:"",Primarykey:"",Isnull:"",Comments:""};      
+        var datamodeldata = JSON.parse("{\"data\":[]}");      
+        for(var i=1;i<table.rows.length;i++){ 
+            var Obj = new Object(); 
+            Obj.Mark = table.rows[i].cells[0].id; 
+            Obj.Columnname = table.rows[i].cells[1].innerHTML; 
+            Obj.Datatype = table.rows[i].cells[2].innerHTML; 
+            Obj.Length = table.rows[i].cells[3].innerHTML; 
+            Obj.Primarykey = table.rows[i].cells[4].innerHTML; 
+            Obj.Isnull = table.rows[i].cells[5].innerHTML; 
+            Obj.Comments = table.rows[i].cells[6].innerHTML; 
+            datamodeldata.data.push(Obj);     
+        }     
+        return JSON.stringify(datamodeldata).toString();
+    }        
+    //本表格数据为数据库字段数据
+    //判断字段名称是否重复
+    function ColumnnameDuplicate(){
+        var table = document.getElementById("filedTable"); 
+        var array = new Array();
+        var b = false; 
+        for(var i=1;i<table.rows.length;i++){ 
+            array.push(table.rows[i].cells[1].innerHTML); 
+        } 
+        var nary=array.sort(); 
+        for(var i=0;i<array.length;i++){ 
+            if (nary[i]==nary[i+1]){ 
+                b = true; 
+            } 
+        } 
+        return b;
+    }
+    //提交表格时，判断是否存在数据行
+    function TableRows(){
+        var table = document.getElementById("filedTable");
+        var length = table.rows.length;
+        var b = false;
+        if(length>=2){
+            b=true;
+        }
+        return b;
+    }
+    //判断字段名称是否为空
+    function ColumunameIsnull(){
+        var table = document.getElementById("filedTable"); 
+        var b = false; 
+        for(var i=1;i<table.rows.length;i++){ 
+            if(table.rows[i].cells[1].innerHTML==""){ 
+                b = true; 
+            } 
+        } 
+        return b;
+    }
+        </script>
+    </head>
+
+    <body>
+        <div class="ibox-content col-md-12" style="padding-top: 0px; border: 0px; height: 100%; width: 100%">
+            <table class="table" id="filedTable">
+                <tr>
+                <!-- <td width="32" align="center" "#EFEFEF" Name="check">
+                    <input type="checkbox" name="checkbox" value="checkbox" />
+                </td> -->
+                <td  style="width: 32px; text-align: center; background-color: #EFEFEF;" name = "check">
+                    <input type="checkbox" name="checkbox" value="checkbox"/>
+                </td>
+                <td width="162" bgcolor="#EFEFEF" Name="columnname" EditType="TextBox">列名</td>
+                <td width="112" bgcolor="#EFEFEF" Name="datatype" EditType="DropDownList"
+                    DataItems="{text:'int',value:'int'},{text:'varchar',value:'varchar'},{text:'datetime',value:'datetime'},{text:'longblob',value:'longblob'}">数据类型</td>
+                <td width="172" bgcolor="#EFEFEF" Name="length" EditType="TextBox">长度</td>
+                <td width="112" bgcolor="#EFEFEF" Name="primarykey" EditType="DropDownList"
+                    DataItems="{text:'true',value:'true'},{text:'false',value:'false'}">主键</td>
+                <td width="112" bgcolor="#EFEFEF" Name="notnull" EditType="DropDownList"
+                    DataItems="{text:'true',value:'true'},{text:'false',value:'false'}">非空</td>
+                <td width="206" bgcolor="#EFEFEF" Name="comments" EditType="TextBox">注释</td>
+                </tr>
+            </table>
+                <br />
+                <input type="button" name="Submit" value="新增" onclick="AddRow(document.getElementById('filedTable'))" />
+            <input type="button" name="Submit2" value="删除" onclick="DeleteRow(document.getElementById('filedTable'))" />
+        </div>
+    </body>
+</html>

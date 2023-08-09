@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<script>
+    function showHint(str) {
+        var xmlhttp;
+        if(str.length == 0) {
+            document.getElementById("textHint").innerHTML = "";
+            return;
+        }
+        if(window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else{
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 400){
+                document.getElementById("textHint").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET","/AJAX/1.2ajax_info.txt?q=" + str,true);
+        xmlhttp.send();
+    }
+</script>
+</head>
+<body>
+
+
+<h3>在输入框中尝试输入字母</h3>
+<form action="">
+    输入姓名：<input type="text" id="text1" onkeyup="showHint(this.value)"/>
+</form>
+<p>提示信息：<span id="textHint"></span></p>
+
+</body>
+</html>

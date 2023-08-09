@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>userManager</title>
+    <meta name="viewport" content="width = device-width,initial-scale = 1">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css"
+    href="http://cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
+    <!-- jQuery -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf8"
+    src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+    
+
+
+    <style>
+        #wrap{
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 7px;
+            margin-right: 3px;
+            /* float: right; */
+        }
+        #button1,#button2,#button3{
+            float:right;
+            border-radius: 7px;
+            border: none;
+            margin-right: 5px;
+            padding-right: 3px;
+            width: 120px;
+            height: 30px;
+        }
+        #tabletest{
+            width: 1100px;
+            position: relative;
+            border: 1px;
+        }
+        .userthead{
+            background-color: #F4FAFE;
+        }
+        table,table thead tr th, table tbody tr td { 
+            border:1px solid #ccc;
+            text-align: center;
+        } 
+       #div1,#div2{
+           display: inline;
+       }
+       th,td{
+           height: 40px;
+       }
+       th{
+        cursor: pointer;
+       }
+       .black_overlay {
+            display: none;
+            /* 此元素不会被显示*/
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: #bbbbbb;
+            z-index: 1001;
+            /* z-index 属性设置元素的堆叠顺序。*/
+            opacity: .80;
+            /* opacity 属性设置元素的不透明级别。*/
+        }
+
+
+        .white_content {
+            display: none;
+            position: absolute;
+            top: 20%;
+            border: 1px solid #bbbbbb;
+            border-radius: 20px;
+            background-color: white;
+            z-index: 1002;
+            /*层级要比.black_overlay高，这样才能显示在它前面*/
+            overflow: auto;
+        }
+
+        #light,#light1,#light2{
+            position: absolute;
+            left: 50%;
+            /* top: 50%; */
+            width: 300px;
+            height: 250px;
+            margin-left: -150px;
+            /* margin-top: -125px */;
+        }
+
+        #form_submit {
+            text-align: center;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        #adduser,#deleteuser,#modifyuser{
+            font-weight: 400;
+            font-size: 20px;
+            color: #BBBBBB;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .adduserinput,.deleteuserinput,.modifyuserinput{
+            width: 150px;
+            height: 22px;
+            border-radius: 3px;
+            border: 1px solid gainsboro;
+        }
+
+        .button_beautiful {
+            width: 60px;
+            height: 34px;
+            /* 高度 */
+            border-width: 0px;
+            border-radius: 6px;
+            background: #4ECDC4;
+            cursor: pointer;
+            outline: none;
+            color: white;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        
+    </style>
+
+    <script>
+        // 对当前表格中信息的检索功能
+        $(function(){
+            $("#input1").keyup(function(){
+                var input, filter, table, tr, td, i , j , txtValue , cells;
+                input = document.getElementById("input1");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("tabletest");
+                tr = table.getElementsByTagName("tr");
+                // 循环遍历所有列表项，并隐藏那些与搜索查询不匹配的项
+                for (i = 0; i < tr.length; i++) {
+                    // cells = document.getElementById("tabletest").rows.item(0).cells.length;
+                    td = tr[i].getElementsByTagName("td")[2];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                    
+                }
+            })
+            
+        });
+
+        // <th>中的复选框选择/反选所有的功能
+        function checkAll(c) {
+            var status = c.checked;
+            var oItems = document.getElementsByName('item');
+            for(var i=0;i<oItems.length;i++){
+                oItems[i].checked =status;
+            }
+        }
+
+        
+        
+    </script>
+
+    <script>
+        // 表头字段排序
+        function sortTable(selector, compFunc) {
+            var mySelector = '.sortable';
+            var myCompFunc = function($td1, $td2, isAsc) {
+                var v1 = $.trim($td1.text()).replace(/,|\s+|%/g, '');
+                var v2 = $.trim($td2.text()).replace(/,|\s+|%/g, '');
+                var pattern = /^\d+(\.\d*)?$/;
+                if (pattern.test(v1) && pattern.test(v2)) {
+                v1 = parseFloat(v1);
+                v2 = parseFloat(v2);
+                }
+
+                return isAsc ? v1 > v2 : v1 < v2;
+            };
+
+            var doSort = function($tbody, index, compFunc, isAsc)
+            {
+                var $trList = $tbody.find("tr");
+                var len = $trList.length;
+                for(var i=0; i<len-1; i++) {
+                for(var j=0; j<len-i-1; j++) {
+                    var $td1 = $trList.eq(j).find("td").eq(index);
+                    var $td2 = $trList.eq(j+1).find("td").eq(index);
+
+                    if (compFunc($td1, $td2, isAsc)) {
+                    var t = $trList.eq(j+1);
+                    $trList.eq(j).insertAfter(t);
+                    $trList = $tbody.find("tr");
+                    }
+                }
+                }
+            }
+
+            var init = function() {
+                var $th = $("th" + selector);
+                this.$table = $th.closest("table");
+                var that = this;
+                $th.click(function(){
+                    var index = $(this).index();
+                    var asc = $(this).attr('data-asc');
+                    isAsc = asc === undefined ? true : (asc > 0 ? true : false);
+
+                    doSort(that.$table.find("tbody"), index, compFunc, isAsc);
+
+                    $(this).attr('data-asc', 1 - (isAsc ? 1 : 0));
+                });
+
+                $th.css({'cursor': 'pointer'})
+                .attr('title', '点击排序')
+                .append('&nbsp;<i class="fa fa-long-arrow-down" style="color:#2196F3" aria-hidden="true"></i><i class="fa fa-long-arrow-up" style="color:#2196F3" aria-hidden="true"></i>');
+            };
+
+
+            selector = selector || mySelector;
+            compFunc = compFunc || myCompFunc;
+
+            init();
+        }
+    </script>
+    
+</head>
+<body>
+    <nav class="breadcrumb" style="margin-top: 20px;">
+        <i class="Hui-iconfont">&#xe6c9;</i> 系统维护 <span class="c-gray en">&gt;</span> 用户管理
+    </nav>
+
+
+    <div class="container mt-3" style="background-color: #EDF7FA; width: 1300px; height: 60px;position: relative;margin-top: 40px;" >
+        
+        <div class="row">
+            <div class="col-3 " style="position: absolute; margin-left: 3px;padding-top: 17px;">
+                北京科麦--用户管理
+            </div>
+            <div id = "wrap" style="position: absolute;padding-top: 9px;">
+                <input id="button1" class="text-white" style="float:right;background-color: #23BB65" type="button" value="增加用户" 
+                       onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"/>
+                <input id="button2" class="text-white" style="float:right;background-color: #F3453F" type="button" value="删除用户"/>
+                <input id="button3" class="text-white" style="float:right;background-color: #00B7F3" type="button" value="修改用户"/>
+            </div>
+       
+        </div>
+    </div>
+
+    <!-- 增加用户部分代码 -->
+    <div id="light" class="white_content">
+        <div id="adduser">增加用户</div>
+        <form action="" method="post" id="form_submit">
+            <!-- 用户id:&nbsp;<input type="text" name="" id="adduserid" class="adduserinput" value=""/><br> -->
+            姓名:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="addusername" class="adduserinput" value="" /></br>
+            性别:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="addsex" class="adduserinput" value=""></br>
+            <input id="adduserbutton" type="button" value="确认" class="button_beautiful ceshi" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"/>
+            <input type="button" value="取消" class="button_beautiful" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" />
+        </form>
+    </div>
+    <div id="fade" class="black_overlay"></div>
+
+    <!-- 删除用户部分代码 -->
+    <div id="light1" class="white_content">
+        <div id="deleteuser">输入要删除用户的id</div>
+        <form action="" method="post" id="form_submit">
+            用户id:&nbsp;<input type="text" name="" id="deleteuserid" class="deleteuserinput" value=""/><br>
+            <input id="deleteuserbutton" type="button" value="确认" class="button_beautiful ceshi" onclick="document.getElementById('light1').style.display='none';document.getElementById('fade1').style.display='none'"/>
+            <input type="button" value="取消" class="button_beautiful" onclick="document.getElementById('light1').style.display='none';document.getElementById('fade1').style.display='none'" />
+        </form>
+    </div>
+    <div id="fade1" class="black_overlay"></div>
+
+    <!-- 修改用户部分代码 -->
+    <div id="light2" class="white_content">
+        <div id="modifyuser">修改用户</div>
+        <form action="" method="post" id="form_submit">
+            <!-- 用户id:&nbsp;<input type="text" name="" id="modifyuserid" class="modifyuserinput" value=""/><br> -->
+            姓名:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="modifyusername" class="modifyuserinput" value="" /></br>
+            性别:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="" id="modifysex" class="modifyuserinput" value=""></br>
+            <input id="modifyuserbutton" type="button" value="确认" class="button_beautiful ceshi" onclick="document.getElementById('light2').style.display='none';document.getElementById('fade2').style.display='none'"/>
+            <input type="button" value="取消" class="button_beautiful" onclick="document.getElementById('light2').style.display='none';document.getElementById('fade2').style.display='none'" />
+        </form>
+    </div>
+    <div id="fade2" class="black_overlay"></div>
+ 
+
+    <!--条目数量显示代码-->
+    <div class="container mt-3" style="width: 1300px; height: 5px;">
+        <div id="div1">
+            <span>显示:</span>
+            <select id="pageselect" style="border-radius: 3px;width: 50px;">
+                <option>10</option>
+                <option>20</option>
+                <option>30</option>
+                <option>40</option>
+            </select>
+            <span>条</span>
+        </div>
+
+        <div id="div2" style="float:right;">
+            <span style="font-size: 15px;">从当前用户中检索: &nbsp;</span>
+            <input type="text" id="input1" style="width: 150px; height: 20px;">
+        </div>
+            
+     </div>
+     <br>
+     
+
+     <div class="container mt-3" >
+        <table class="display" id="tabletest">
+            <thead class="userthead">
+                <tr>
+                <!-- <th style="width: 32px; text-align: center" name = "check">
+                   <input type="checkbox" name="checkbox" value="checkbox"/>
+                </th> -->
+                <th style="width: 32px;"><input type="checkbox" onclick="checkAll(this)"></th>
+                <th class="number" width="162" Name="columnname" EditType="TextBox" style="display: none;"><b>用户id</b></th>
+                <th class="sortable" width="112" Name="datatype" EditType="DropDownList"><b>姓名</b></th>
+                <th class="sortable" width="172" Name="length" EditType="TextBox"><b>性别</b></th>
+                <th class="sortable" width="112" Name="primarykey" EditType="DropDownList"><b>是否删除</b></th>
+                
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td style="width: 32px;"><input type="checkbox" name="item"></td>
+                    <td style="display: none;">1</td>
+                    <td>zs</td>
+                    <td>male</td>
+                    <td>N</td>
+                </tr>
+                <tr>
+                    <td style="width: 32px;"><input type="checkbox" name="item"></td>
+                    <td style="display: none;">2</td>
+                    <td>ls</td>
+                    <td>female</td>
+                    <td>N</td>
+                </tr> -->
+            </tbody>
+            
+        </table>
+    </div>
+    
+</body>
+</html>

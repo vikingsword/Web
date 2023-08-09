@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>表单</title>
+    </head>
+
+    <body>
+        <form>
+            First name:<input type="text" name="first name"><br>
+            Last name:<input type="text" name="last name"><br>
+            Account:<input type="number" name="account"><br>
+            Password:<input type="password" name="password"><br>
+            
+            <input type="radio" name="sex" value="Male">Male<br>
+            <input type="radio" name="sex" value="Female">Female<br>
+
+            <!--
+                <input type="button">A<br>
+                 <input type="button">B<br>
+                 <input type="button">C<br>
+            -->
+
+            <input type="checkbox" name="char" value="A">A<br>
+            <input type="checkbox" name="char" value="B">B<br>
+            <input type="checkbox" name="char" value="C">C<br>
+            <input type="checkbox" name="char" value="1">1<br>
+
+        </form>
+
+        <form name="inpute" action="表单test.html" method="GET">
+            Usename:<input type="text" name="usename">
+            <input type="submit" value="submit">
+        </form>
+
+        <form action="">
+            <select name="comic">
+                <option value="轻音少女">轻音少女</option>
+                <option value="钢之炼金术师">钢之炼金术师</option>
+                <option value="三月的狮子" selected>三月的狮子</option>
+                <option value="攻壳机动队">攻壳机动队</option>
+            </select>
+        </form>
+
+
+        <textarea rows="10" cols="30">
+        This is a textarea!
+        </textarea>
+
+        <form action="">
+            <a href="https://www.bilibili.com" target="_blank">
+                <input type="button" value="bilibili">
+            </a>
+        </form>
+
+
+        <form>
+            <fieldset>
+                <legend>Personal information</legend>
+                Name:<input type="text" size="30"><br>
+                E-mail:<input type="email" size="30"><br>
+                Date of birth:<input type="date" size="30"><br>
+            </fieldset>
+        </form>
+        <br>
+
+        <form action="表单test.html">
+            First name: <input type="text" value="vikingar"><br>
+            Last name:  <input type="text" value="swords"><br>
+            <input type="submit" value="提交">
+        </form>
+
+    </body>
+</html>

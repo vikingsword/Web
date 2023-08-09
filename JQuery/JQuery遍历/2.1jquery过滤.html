@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jquery</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+       
+        <script>
+            $(function(){
+                $("div p").first().css("background-color","lightblue");
+                $("div p").last().css("background-color","red");
+                $("p").eq(1).css("background-color","yellow");
+            })
+        </script>
+    </head>
+
+    <body>
+        <h3>hello</h3>
+        <div>
+            <p>this is  a p</p>
+        </div>
+        <div>
+            <p>this is another p</p>
+        </div>
+        <div>
+            <p>this is last p</p>
+        </div>
+    </body>
+</html>

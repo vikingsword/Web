@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>将JSON对象中的数据展示到表格里</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //JSON对象，存储着员工数据
+        var data = {
+            "total":6,
+            "emps":[
+                {"empno":"001","ename":"张三","sal":800.0},
+                {"empno":"002","ename":"李四","sal":1800.0},
+                {"empno":"003","ename":"王五","sal":2800.0},
+                {"empno":"004","ename":"王六","sal":3800.0},
+                {"empno":"005","ename":"王七","sal":4800.0},
+                {"empno":"006","ename":"王八","sal":5800.0}
+            ]
+        };
+        // var data1 = JSON.parse();
+        window.onload = function() {
+            //获取按钮对象
+            var displayBtnElt =  document.getElementById("displayBtn");
+            displayBtnElt.onclick = function() {
+                //获取JSON对象中的存储着员工数据的emps属性
+                var emps = data.emps;
+                //通过for循环，将所有员工的信息都拼接到一个字符串里
+                //定义一个变量，用于存储拼接的字符串
+                var htmlStr = "";
+                for(var i = 0;i < emps.length;i++) {
+                    //获取一条员工信息
+                    var emp = emps[i];
+                    /*
+                    <tr>
+                        <td>001</td>
+                        <td>张三</td>
+                        <td>800.0</td>
+                    </tr>
+                    */
+                    htmlStr += "<tr>";
+                    htmlStr += "<td>" + emp.empno + "</td>";
+                    htmlStr += "<td>" + emp.ename + "</td>";
+                    htmlStr += "<td>" + emp.sal + "</td>";
+                    htmlStr += "</tr>";
+                }
+                //将拼接的字符串放进tbody里
+                document.getElementById("tBody").innerHTML = htmlStr;
+                //将总人数放进末尾的span标签内
+                document.getElementById("count").innerText = data.total;
+            }
+        }
+    </script>
+    <table border="1" width="50%" cellspacing="0" cellpadding="0">
+        <input type="button" value="点击显示数据" id="displayBtn">
+        <h3>员工信息表</h3>
+        <hr>
+        <thead>
+            <tr>
+                <th>员工编号</th>
+                <th>员工姓名</th>
+                <th>员工薪资</th>
+            </tr>
+        </thead>
+        <tbody id="tBody" align="center"></tbody>
+    </table>
+    总记录条数：<span id="count">0</span>
+</body>
+</html>

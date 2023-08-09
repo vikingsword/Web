@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            vikingar'castal 
+        </title>
+    </head>
+
+    <body>
+        <table border="1">
+            <tr>
+                <th>Header 1</th>
+                <th>Header 2</th>       <!--th:table head-->
+            </tr>
+            <tr>        <!--tr:table row-->
+                <td>row1,cell1,union1</td>      <!--td:table data-->
+                <td>row1,cell2,union2</td>
+            </tr>
+            <tr>
+                <td>row2,cell1,union3</td>
+                <td>row2,cell2,union4</td>
+            </tr>
+        </table>
+
+        
+
+        <table border="10" style="border-color: green;">
+            <tr>
+                <TD>A</TD><TD>B</TD>
+            </tr>
+            <TR>
+                <TD>C</TD><TD>D</TD>
+            </TR>
+        </table>
+
+        <br>
+
+        <h4>水平标题</h4>
+        <table border="5" style="border-top-color: royalblue;border-right-color: gold;">
+            <tr>
+                <th>Name</th><th>Telephone</th><th>Telephone</th>
+            </tr>
+            <tr>
+                <td>Bill Gates</td>
+                <td>123456</td>
+                <td>123456</td>
+            </tr>
+
+        </table>
+
+        
+
+        <h4>垂直标题</h4>
+        <table border="3" style="border-bottom-color: aqua;border-left-color: blueviolet;">
+               <tr>
+                    <th>First Name:</th>
+                    <td>Bill Gates</td>
+               </tr>
+               <tr>
+                   <th>Telephone:</th>
+                   <td>123456</td>
+               </tr>
+               <tr>
+                   <th>Telephone:</th>
+                   <td>123456</td>
+               </tr>
+
+        </table>
+
+        <br>
+        <table border="1">
+            <caption>Monthly savings</caption>
+            <tr>
+                <th>Month</th><th>Savings</th>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>$100</td>
+            </tr>
+            <tr>
+                <td>February</td>
+                <td>$50</td>
+            </tr>
+        </table>
+
+
+        <h4>单元格跨两列</h4>
+        <table border="2">
+            <tr>
+                <th>Name</th>
+                <th colspan="2">Telephone</th>
+            </tr>
+            <tr>
+                <td>Bill Gates</td>
+                <td>123456</td>
+                <td>123456</td>
+            </tr>
+        </table>
+
+        <h4>单元格跨两行</h4>
+        <table border="2">
+            <tr>
+                <th>First Name</th>
+                <td>Bill Gates</td>
+            </tr>
+            <tr>
+                <th rowspan="2">Telephone</th>
+                <td>123456</td>
+            </tr>
+            <tr>
+                <td>123456</td>
+            </tr>
+        </table>
+
+
+        <br>
+        <!--在不同的元素内显示元素-->
+        <table border="2">
+            <tr>
+                <td>
+                    <p>这是一个段落</p>
+                    <p>这是另一个段落</p>
+                </td>
+                <td>
+                    这个单元格包含一个表格
+                    <table border="2">
+                        <tr><td>A</td><td>B</td></tr>
+                        <tr><td>C</td><td>D</td></tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    这个单元格包含一个列表
+                    <ul>
+                        <li>apples</li>
+                        <li>bananas</li>
+                        <li>pineapples</li>
+                    </ul>
+                </td>
+                <td>
+                    This union include a picture<br>
+                    <img src="E:\vikingar\mess\mess\griant.jpg" width="50" height="50" >
+                </td>
+            </tr>
+        </table>
+
+
+        <br>
+        <h3>没有单元格边距</h3>
+        <table border="1">
+            <tr>
+                <td>First</td>
+                <td>Row</td>
+            </tr>
+            <tr>
+                <td>Second</td>
+                <td>Row</td>
+            </tr>
+        </table>
+        <br>
+        <h3>有单元格边距</h3>
+        <table border="2" cellpadding = "10">
+            <tr>
+                <td>First</td>
+                <td>Row</td>
+            </tr>
+            <tr>
+                <td>Second</td>
+                <td>Row</td>
+            </tr>
+        </table>
+
+
+        <br>
+        <h3>没有单元格间距：</h3>
+        <table border="2">
+            <tr>
+                <td>First</td>
+                <td>Row</td>
+            </tr>
+            <tr>
+                <td>Second</td>
+                <td>Row</td>
+            </tr>
+        </table>
+        <br>
+        <h3>单元格间距=“0”：</h3>
+        <table border="2" cellspacing="0">
+            <tr>
+                <td>First</td>
+                <td>Row</td>
+            </tr>
+            <tr>
+                <td>Second</td>
+                <td>Row</td>
+            </tr>
+        </table>
+        <br>
+        <h3>单元格间距=“10”：</h3>
+        <table border="2" cellspacing="10">
+            <tr>
+                <td>First</td>
+                <td>Row</td>
+            </tr>
+            <tr>
+                <td>Second</td>
+                <td>Row</td>
+            </tr>
+        </table>
+
+       
+    </body>
+</html>

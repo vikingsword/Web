@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <!--JavaScript 允许我们在字符串中使用断行语句:-->
+        <p id="demo1"></p>
+        <script>
+        document.getElementById("demo1").innerHTML =
+            "Hello World!";
+        </script>
+        <br>
+
+        <!--但是，在字符串中直接使用回车换行是会报错的：-->
+        <p id="demo2"></p>
+        <script>
+        document.getElementById("demo2").innerHTML = "Hello 
+        World!";
+        </script>
+        <br>
+
+        <!--字符串断行需要使用反斜杠(\)，如下所示:-->
+        <p id="demo3"></p>
+        <script>
+        document.getElementById("demo3").innerHTML = "Hello \
+        World!";
+        </script>
+        <br>
+
+
+        <!--以下实例结果会返回 undefined：-->
+        <p id="demo4"></p>
+        <script>
+        document.getElementById("demo4").innerHTML = myFunction(55);
+        function myFunction(a) {
+            var
+            power = 10;
+            return
+            a * power;
+        }
+        </script>
+        <br>
+
+
+        <p id="demo5"></p>
+        <script>
+        var person = [];
+        person[0] = "John";
+        person[1] = "Doe";
+        person[2] = 46; 
+        document.getElementById("demo5").innerHTML =
+            person[0] + " " + person.length;
+        </script>
+        <br>
+
+
+        <p>
+        如果你使用名字作为索引，当访问数组时，
+        JavaScript 会把数组重新定义为标准对象，
+        数组的方法及属性将不能再使用，否则会产生错误:。
+        </p>
+        <p id="demo6"></p>
+        <script>
+        var person = [];
+        person["firstName"] = "John";
+        person["lastName"] = "Doe";
+        person["age"] = 46; 
+        document.getElementById("demo6").innerHTML =
+            person[0] + " " + person.length;
+        </script>
+        <br>
+
+
+        <!--
+            定义数组元素，最后不能添加逗号
+            数组最后一个值的后面添加逗号虽然语法没有问题，
+            但是在不同的浏览器可能得到不同的结果。
+            var colors = [5, 6, 7,]; //这样数组的长度可能为3 也可能为4。
+        -->
+
+
+
+        <!--
+            定义对象，最后不能添加逗号
+        -->
+   
+
+
+        <!--
+            在 JavaScript 中, null 用于对象, undefined 用于变量，属性和方法。
+            对象只有被定义才有可能为 null，否则为 undefined。
+            如果我们想测试对象是否存在，在对象还没定义时将会抛出一个错误。
+            错误的使用方式：
+            if (myObj !== null && typeof myObj !== "undefined") 
+            正确的方式是我们需要先使用 typeof 来检测对象是否已定义：
+            if (typeof myObj !== "undefined" && myObj !== null) 
+        -->
+        
+
+        <p id="demo7"></p>
+        <script>
+            for(var i=0;i<10;i++){
+                //some code;
+            }
+            document.getElementById("demo7").innerHTML = i ;
+        </script>
+        <script>
+            document.getElementById("demo7").innerHTML = i ;
+        </script>
+
+
+    </body>
+</html>

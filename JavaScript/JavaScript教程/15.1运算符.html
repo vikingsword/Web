@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <p>点击按钮计算x的值。</p>
+        <button id="demo1" onclick="myfunction1()">点击这里</button>
+        <!-- <p id="demo1"></p> -->
+        <script>
+            function myfunction1(){
+                var y = 3;
+                var z = 4;
+                var x = y + z;
+                document.getElementById("demo1").innerHTML = x;
+            }
+        </script>
+        <br><br><br>
+
+
+        <p>假设 y=5，计算 x=y+2，并显示结果。</p>
+        <button onclick="myfunction2()">点击这里</button>
+        <p id="demo2"></p>
+        <script>
+            var y = 5;
+            var x = y + 2;
+            function myfunction2(){
+                document.getElementById("demo2").innerHTML = "x=" + x;
+            }
+        </script>
+        <br><br><br>
+
+
+
+        <p>假设x=10,y=5,计算x+=y并显示结果。</p>
+        <button onclick="myfunction3()">点击这里</button>
+        <p id="demo3"></p>
+        <script>
+            var x = 10;
+            var y = 5;
+            x += y;
+            function myfunction3(){
+                document.getElementById("demo3").innerHTML = "x = " + x;
+            }
+        </script>
+        <br><br><br>
+
+
+        <script>
+            text1 = "What a very ";
+            text2 = "nice day";
+            text3 = text1 + text2;
+            document.write(text3);
+        </script>
+        <br><br><br>
+
+
+        <p>点击按钮创建及增加字符串变量。</p>
+        <button onclick="myfunction4()">点击这里</button>
+        <p id="demo4"></p>
+        <script>
+            text1 = "What a very";
+            text2 = "nice day";
+            text3 = text1 + " " + text2;
+            function myfunction4(){
+                document.getElementById("demo4").innerHTML = text3;
+            }
+        </script>
+        <br><br><br>
+
+
+        <p>对字符串和数字进行加法运算</p>
+        <button onclick="myfunction5()">点击这里</button>
+        <p id="demo5"></p>
+        <script>
+            var x = 5 + 5;
+            var y = "5" + 5;
+            var z = "Hello" + 5;
+
+            function myfunction5(){
+                document.getElementById("demo5").innerHTML = x + "<br>" + y + "<br>" + z;
+            }
+        </script>
+        <br><br><br>
+
+
+        
+
+    </body>
+</html>

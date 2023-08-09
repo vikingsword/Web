@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>userManager</title>
+    <meta name="viewport" content="width = device-width,initial-scale = 1">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        #wrap{
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 7px;
+            margin-right: 3px;
+            /* float: right; */
+        }
+        #wrap2{
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 4px;
+            margin-right: 8px;
+        }
+        #button1,#button2,#button3{
+            float:right;
+            border-radius: 7px;
+            border: none;
+            margin-right: 4px;
+           
+        }
+        
+    </style>
+    
+</head>
+<body>
+    <div class="container mt-3" style="background-color: #EDF7FA; width: 1300px; height: 40px;position: relative;" >
+        
+        <div class="row" >
+            <div class="col-3 " style="position: absolute; margin-left: 3px;margin-top: 7px;">
+                北京科麦--用户管理
+            </div>
+            <div id = "wrap" style="position: absolute;">
+                 <!-- <button class="pull-right rounded-2 btn float-right"  style="background-color: #23BB65;width: 80px ; height: 30px;">add</button> -->
+                <input id="button1" class="col-1 text-white" style="float:right;background-color: #23BB65" type="button" value="增加用户" />
+                <input id="button2" class="col-1 text-white" style="float:right;background-color: #F3453F" type="button" value="删除用户"/>
+                <input id="button3" class="col-1 text-white" style="float:right;background-color: #00B7F3" type="button" value="修改用户"/>
+            </div>
+       
+        </div>
+    </div>
+ 
+     <div class="container mt-3" style="width: 1300px; height: 10px;position: relative;">
+        <div class="row">
+            <div id="div1" style="position: absolute; margin-top: 4px;margin-left: 3px;">
+                显示:
+                <select id="pageselect">
+                    <option>10</option>
+                    <option>20</option>
+                    <option>30</option>
+                    <!-- <option>40</option> -->
+
+                </select>
+            </div>
+
+            <div id="div2"  style="position: absolute; margin-right: 8px; margin-top: 4px;">
+                <div id="wrap2" style="float: right;vertical-align: middle;">
+                    <span style="font-size: 15px;">从当前用户中检索: &nbsp</span>
+                    <input type="text" id="input1" style="width: 150px; height: 20px;">
+                </div>
+            </div>
+        </div>
+     </div>
+     <br>
+     
+
+     <div class="container mt-3">
+        <table class="table table-bordered" id='tabletest'>
+            <tr>
+                <th>用户id</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>是否使用</th>
+            </tr>
+        </table>
+        <br><br>
+     </div>
+    
+</body>
+</html>

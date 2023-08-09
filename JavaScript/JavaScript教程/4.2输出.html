@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+       <h1>我的页面</h1> 
+       <p>我的段落.</p>
+       <p id="demo">在此处显示当前时间</p>
+
+       <script>
+           function myfunction1(){
+               document.getElementById("demo").innerHTML = Date();
+           }
+       </script>
+       <button type="button" onclick="myfunction1()">显示时间</button>
+    </body>
+</html>

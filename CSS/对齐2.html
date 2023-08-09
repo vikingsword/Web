@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>对齐2</title>
+        <style>
+            div {
+                border: 3px solid #4CAF50;
+                padding: 5px;
+            }
+
+            .img1 {
+                float: right;
+            }
+
+            .clearfix {
+                overflow: auto;
+            }
+
+            .img2 {
+                float: right;
+            }
+
+            .center1{
+                padding: 70px 3;
+                border: 3px solid green;
+            }
+
+            .center2{
+                padding: 80px 0;
+                border: 3px solid green;
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        
+        <p>以下实例图在父元素中溢出，很不美观:</p>
+        <div>
+        <img class="img1" src="./picture/1.jpg"" alt="Pineapple" width="170" height="170">
+        菜鸟教程 - 学的不仅是技术，更是梦想！！！</div>
+
+        <p style="clear:right">在父元素上通过添加 clearfix 类，并设置 overflow: auto; 来解决该问题:</p>
+        <div class="clearfix">
+        <img class="img2" src="./picture/1.jpg"" alt="Pineapple" width="170" height="170">
+        菜鸟教程 - 学的不仅是技术，更是梦想！！！</div>
+        <br><br><br>
+
+        <h2>垂直居中</h2>
+        <p>以下实例，我们使用 padding 属性实现元素的垂直居中：</p>
+        <div class="center1">
+            <p>我是垂直居中的</p>
+        </div><br><br><br>
+
+
+        <h2>水平和垂直居中：</h2>
+        <p>以下实例，我们使用 padding 和 text-align 让 div 元素的水平和垂直方向都居中:</p>
+        <div class="center2">
+            <p>我是水平和垂直都居中</p>
+        </div>
+    </body>
+</html>

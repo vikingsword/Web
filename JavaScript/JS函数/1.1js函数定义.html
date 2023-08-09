@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+
+    <body>
+        <p>计算结果：</p>
+        <p id="demo"></p>
+        <script>
+            function myFunction(a,b) {
+                document.getElementById("demo").innerHTML = a * b;
+            }
+        </script>
+        <button onclick="myFunction(2,4)">计算</button>
+        <br><br><br>
+
+        <p>计算结果</p>
+        <p id="demo2"></p>
+        <p id="demo3"></p>
+        <script>
+            var x = function(a,b){
+                return a * b;
+            }
+            document.getElementById("demo2").innerHTML = x;
+
+            document.getElementById("demo3").innerHTML = x(3,4);
+        </script>
+        <br><br><br>
+
+        <p>计算结果</p>
+        <p id="demo4"></p>
+        <script>
+            var myf1 = new Function("a","b","return a*b");
+            document.getElementById("demo4").innerHTML = myf1(3,4);
+        </script>
+         <br><br><br>
+
+         <p>计算结果</p>
+         <p id="demo5"></p>
+         <script>
+             var myf2  = function(a,b) {return a*b};
+             document.getElementById("demo5").innerHTML = myf2(4,5);
+         </script>
+         <br><br><br>
+
+         <!--声明提升-->
+         <p id="demo6"></p>
+         <script>
+
+             myFunction(4);
+
+             function myFunction(a) {
+                 document.getElementById("demo6").innerHTML = a * a;
+             }
+         </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

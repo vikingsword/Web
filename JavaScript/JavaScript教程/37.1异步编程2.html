@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <p>回调函数三秒后执行</p>
+        <p id="demo1"></p>
+        <script type="text/javascript">
+            function print1() {
+                document.getElementById("demo1").innerHTML = "hello world";
+            }
+            setTimeout(print1,3000);
+        </script>
+        <br><br><br>
+
+        <p>回调函数三秒后执行</p>
+        <p id="demo2"></p>
+        <p id="demo3"></p>
+        <script>
+            setTimeout(function(){
+                document.getElementById("demo2").innerHTML = "hello world!!!";
+            },3000);
+            document.getElementById("demo3").innerHTML = "hello world####";
+        </script>
+        <br><br><br>
+
+
+        <!-- <p><strong>以下内容通过ajax异步请求获取：</strong></p>
+        <p id="demo4"></p>
+        <script>
+            var x = new XMLHttpRequest();
+
+            x.onload = function() {
+                document.getElementById("demo4").innerHTML = x.responseText;
+            }
+
+            x.onerror = function() {
+                document.getElementById("demo4").innerHTML = "请求出错";
+            }
+
+            x.open("GET","https://www.runoob.com/try/ajax/ajax_info.txt",true);
+            x.send();
+
+        </script>
+        <br><br><br> -->
+
+
+        <p><strong>以下内容是通过异步请求获取的：</strong></p>
+        <p id="demo"></p>
+        <script>
+            var xhr = new XMLHttpRequest();
+            
+            xhr.onload = function () {
+                // 输出接收到的文字数据
+                document.getElementById("demo").innerHTML=xhr.responseText;
+            }
+            
+            xhr.onerror = function () {
+                document.getElementById("demo").innerHTML="请求出错";
+            }
+            
+            // 发送异步 GET 请求
+            xhr.open("GET", "https://www.runoob.com/try/ajax/ajax_info.txt", true);
+            xhr.send();
+
+        </script>
+    </body>
+</html>

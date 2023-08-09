@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+        <script type="text/javascript">
+            function getValue(){
+                var a,b,c;
+                a = void(b = 5,c = 7);
+                document.write('a = ' + a + ' b = ' + b + ' c = ' + c);
+            }
+        </script>
+    </head>
+
+    <body>
+        <a href="javascript:void(0)">点击此处什么也不会发生</a>
+        <br><br><br>
+
+
+        <p>点击以下链接查看结果：</p>
+        <a href="javascript:void(alert('warning!'))">点我</a>
+        <br><br><br>
+
+        <a href="javascript:void(alert('warning!'))">click me </a>
+        <br><br><br>
+
+
+        <p>点击以下按钮查看结果：</p>
+        <form>
+        <input type="button" value="点我" onclick="getValue();" />
+        </form>
+    </body>
+</html>

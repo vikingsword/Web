@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+    <script>
+        $(function(){
+            $("button").click(function(){
+                $.post("1.3demo.txt",
+                {
+                    name:"zs",
+                    age:18
+                },{
+                    function(data,status) {
+                        alert("数据:" + data + "\n状态" + status );
+                        document.getElementById("demo1").innerHTML = data;
+                    }
+                })
+            })
+        })
+    </script>
+
+    <script>
+        $(function(){
+            $("button").click(function(){
+                $.post("url",{
+                    name:"zs",
+                    age:28
+                },{
+                    function(data) {
+                        document.getElementById("demo1").innerHTML = data;
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+
+    <p id="demo1">显示数据在这里</p>
+    <button>发送一个 HTTP GET 请求并获取返回结果</button>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>对齐</title>
+        <style>
+            .center1{
+                margin: auto;
+                border: 3px solid #73ad21;
+                padding: 20px;
+                width: 60%;
+            }
+
+            .center2{
+                text-align: center;
+                border: 3px solid lightgreen;
+            }
+
+            img{
+                display: block;
+                margin: 0 auto;
+            }
+
+            .right{
+                border: #73ad21 3px solid;
+                position: absolute;
+                right: 0px;
+                width: 300px;
+                padding: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h2>元素居中对齐</h2>
+        <p>水平居中块级元素 (如 div), 可以使用 margin: auto;</p>
+        <div class="center1">
+            <p><b>注意: </b>使用 margin:auto 无法兼容 IE8, 除非 !DOCTYPE 已经声明。</p>
+        </div>
+
+        <h2>文本居中对齐</h2>
+        <div class="center2">
+            <p>文本居中对齐。</p>
+        </div>
+
+        <h2>图片居中对齐</h2>
+        <p>要让图片居中对齐, 可以使用 margin: auto; 并将它放到块元素中：</p>
+        <img src="./picture/3.jpg" alt="Mash" style="width: 40%">
+
+        <h2>右对齐</h2>
+        <p>以下实例演示了如何使用 position 来实现右对齐:</p>
+        <div class="right">
+            文本右对齐。
+        </div>
+    </body>
+</html>

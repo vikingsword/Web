@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript</title>
+    </head>
+
+    <body>
+
+        <p id = "demo"></p>
+
+        <script>
+
+            class Run1 {
+                constructor(name,url) {
+                    this.name = name;
+                    this.url = url;
+                }
+            }
+            
+            let site = new Run1 ("vik","www.vik.com");
+            document.getElementById("demo").innerHTML = 
+            site.name + " " + site.url;
+
+
+            // 未命名/匿名类
+            let Runoob = class {
+            constructor(name, url) {
+                this.name = name;
+                this.url = url;
+            }
+            };
+            console.log(Runoob.name);
+            // output: "Runoob"
+            
+            // 命名类
+            let Runoob = class Runoob2 {
+            constructor(name, url) {
+                this.name = name;
+                this.url = url;
+            }
+            };
+            console.log(Runoob.name);
+        </script>
+
+
+      
+
+    </body>
+</html>

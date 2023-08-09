@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <!--在下面的例子中，我们创建了名为 carname 的变量，
+        并向其赋值 "Volvo"，然后把它放入 id="demo" 的 HTML 段落中：-->
+
+        <p>点击这里创建变量并显示结果。</p>
+        <button type="button" onclick="myfunction()">点这</button>
+        <p id="demo"></p>
+
+        <script>
+            var x = 5;
+            var y = 6;
+            var z = x + y;
+            document.write(x+"<br>");
+            document.write(y+"<br>");
+            document.write(z+"<br>");
+
+            function myfunction(){
+                var carname = "volvo";
+                document.getElementById("demo").innerHTML = carname;
+            }
+        </script>
+    </body>
+</html>

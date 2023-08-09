@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <!--if 条件语句返回 false (不是我们预期的)
+            因为条件语句执行为 x 赋值 0，0 为 false
+        -->
+        <p id="demo1"></p>
+        <script>
+        var x = 0;
+        document.getElementById("demo1").innerHTML = Boolean(x = 0);
+        </script>
+        <br>
+
+
+        <!--在常规的比较中，数据类型是被忽略的，
+            以下 if 条件语句返回 true：-->
+        <p id="demo2"></p>
+        <script>
+        var x = 10;
+        var y = "10";
+        document.getElementById("demo2").innerHTML = Boolean(x == y);
+        </script>
+        <br>
+
+
+        <!--在严格的比较运算中，=== 为恒等计算符，
+            同时检查表达式的值与类型，
+            以下 if 条件语句返回 false
+            这种错误经常会在 switch 语句中出现，
+            switch 语句会使用恒等计算符(===)进行比较
+        -->
+        <p id="demo3"></p>
+        <script>
+        var x = 10;
+        var y = "10";
+        document.getElementById("demo3").innerHTML = Boolean(x === y);
+        </script>
+        <br>
+
+
+        <p id="demo4"></p>
+        <script>
+        var x = 10 + "5";
+        var y = 10 + 5 ;
+        document.getElementById("demo4").innerHTML = x + "<br>" + y;
+        </script>
+        <br>
+
+    
+        <!--JavaScript 中的所有数据都是以 64 位浮点型数据(float) 来存储。
+            所有的编程语言，包括 JavaScript，对浮点型数据的精确度都很难确定
+        -->
+        <p id="demo5"></p>
+        <script>
+        var x = 0.1;
+        var y = 0.2;
+        var z = x + y;
+        document.getElementById("demo5").innerHTML = z;
+        if(z == 0.3);
+        </script>
+        <br>
+        <!--为解决以上问题，可以用整数的乘除法来解决：-->
+        <p id="demo6"></p>
+        <script>
+        var x = 0.1;
+        var y = 0.2;
+        var z = (x * 10 + y *10) / 10;
+        document.getElementById("demo6").innerHTML = z;
+        </script>
+        <br>
+
+
+    </body>
+</html>

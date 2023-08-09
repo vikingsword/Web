@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jquery</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+       
+        <script>
+            $(function(){
+                $("#btn1").click(function(){
+                    $("#test1").text(function(i,origTest){
+                        return "旧文本" + origTest + "\n新文本" + "hello world(index ="  + i + ")";
+                    })
+                });
+                $("#btn2").click(function(){
+                    $("#test2").html(function(i,origTest){
+                        return "旧文本" + origTest + "\n新文本" + "hello world(index = " + i + ")";
+                    })
+                })
+            })
+        </script>
+    </head>
+
+    <body>
+        <p id="test1">这是一个段落。</p>
+        <p id="test2">这是另外一个段落。</p>
+    
+        <button id="btn1">设置文本</button>
+        <button id="btn2">设置 HTML</button>
+        <button id="btn3">设置值</button>
+    </body>
+</html>

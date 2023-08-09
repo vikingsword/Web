@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <p id="demo1"></p>
+        <script>
+            var x = 'It\'s alright';
+            var y = "He is called \"John\"";
+            document.getElementById("demo1").innerHTML = x + "<br>" + y;
+            document.write(x[2]+"<br>");
+            document.write(y[2]+"<br>");
+        </script>
+        <br><br><br>
+
+
+        <script>
+            var text = "Hello World!";
+            document.write("<p>" + text.length + "</p>");
+            var text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            document.write("<p>" + text.length + "</p>");
+            
+        </script>
+        <br><br><br>
+
+        <script>
+            document.write("ABC\\DEF");
+            document.write("<br>");
+            document.write("HJ\\nBB");
+            document.write("<br>");
+            document.write("dh\rjj");
+            document.write("<br>");
+            document.write("hsh\tjjs");
+            document.write("<br>");
+            document.write("djsj\bsdjsj");
+            document.write("<br>");
+            document.write("djfj\fjjsl");
+        </script>
+        <br><br><br>
+
+
+        <!--不要创建 String 对象。它会拖慢执行速度，并可能产生其他副作用：-->
+        <p id="demo2"></p>
+        <script>
+            var x = "John";
+            var y = new String("John");
+            document.getElementById("demo2").innerHTML = typeof x + " " + typeof y;
+        </script>
+        <br><br><br>
+
+
+        <p id="demo3"></p>
+        <script>
+            var x1 = "John";
+            var y1 = new String("John");
+            document.getElementById("demo3").innerHTML = x1===y1;
+        </script>
+        <p>=== 为绝对相等，即数据类型与值都必须相等。</p>
+        <br><br><br>
+
+    </body>
+</html>

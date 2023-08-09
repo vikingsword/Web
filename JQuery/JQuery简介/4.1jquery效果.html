@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+    <script>
+        $(function(){
+            $("#button1").click(function(){
+                $("p").hide();
+            });
+            $("#button2").click(function(){
+                $("p").show();
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>点击隐藏消失，点击显示出现</p>
+    <button id="button1">隐藏</button>
+    <button id="button2">显示</button>
+
+</body>
+</html>
