@@ -25,5 +25,16 @@
             document.getElementById("demo2").innerHTML = "hello";
         });
     </script>
+
+    <br><br>
+
+    <p id="demo3">click this</p>
+    <script>
+        document.getElementById("demo3").addEventListener("click", showContent);
+        function showContent() {
+            alert("vikingar");
+            document.getElementById("demo3").innerHTML = "vikingar";
+        }
+    </script>
 </body>
 </html>
