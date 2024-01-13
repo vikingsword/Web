@@ -8,10 +8,28 @@
 </head>
 <body>
     <div id="app">
-        <a : href="link">百度</a>
-        <input type="text" : placeholder="inputValue">
-        <img : src="imgSrc" : style="{width:w}" alt="">
+        <!-- v-bind 可以省略 -->
+        <a v-bind:href="link">百度</a>
+        <input type="text" :placeholder="inputValue">
+        <!-- style 属性绑定了一个对象，对象的参数是宽度，宽度的值是 w -->
+        <img :src="imgSrc" :style="{width:w}" alt="">
 
     </div>
+
+    <script>
+        const vm = {
+            data: function() {
+                return {
+                    link: "http://www.baidu.com",
+                    inputValue: 'input content',
+                    imgSrc: './images/1.jpg',
+                    w: '500px'
+                }
+            }
+        }
+        Vue.createApp(vm).mount('#app')
+
+        // 总之就是创建一个 model 将其绑定到 view 上
+    </script>
 </body>
 </html>
