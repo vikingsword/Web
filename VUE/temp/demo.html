@@ -8,26 +8,20 @@
 </head>
 <body>
     <div id="app">
-        <h3>count 的值为： {{count}}</h3>
-        <!--调用方法-->
-        <button v-on:click="addCount">+1</button>
-        <!--写表达式，vue的特点：数据一旦变化页面自己刷新-->
-        <button @click="count+=1">+1</button>
+        <p>count is {{count}}</p>
+        <button @click="addCount">*2</button>
     </div>
 
     <script>
         const vm = {
-            // data 后面跟的是属性 function
             data: function() {
                 return {
-                    count: 0
+                    count: 1
                 }
             },
-            // methods 是固定的，后面跟的是方法 {}， 自定义的方法都要放在这里面
             methods: {
-                // 点击按钮， 让 count 自增 +1
                 addCount() {
-                    this.count += 1
+                    this.count *= 2
                 }
             }
         }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <p>my name is {{name}}</p>
+        <button @click="changeMe">change name</button>
+    </div>
+
+    <script>
+        const vm = {
+            data: function() {
+                return {
+                    name: "zs"
+                }
+            },
+            methods: {
+                changeMe() {
+                    this.name = "ls"
+                }
+            }
+        }
+        Vue.createApp(vm).mount('#app')
+    </script>
+</body>
+</html>
