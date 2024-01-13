@@ -7,6 +7,21 @@
     <script src="https://unpkg.com/vue@3"></script>
 </head>
 <body>
-    
+    <div id="app">
+        <button @click="flag = !flag">Toggle flag</button>
+        <p v-if="flag">被 v-if 显示</p>
+        <p v-show="flag">被 v-show 显示</p>
+    </div>
+
+    <script>
+        const vm = {
+            data: function() {
+                return {
+                    flag: false
+                }
+            }
+        }
+        Vue.createApp(vm).mount('#app')
+    </script>
 </body>
 </html>

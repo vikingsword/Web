@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <p>随机数为 {{num}}</p>
+        <p v-if="num > 0.5">随机数大于 0.5</p>
+        <p v-else>随机数小于 0.5</p>
+        <hr>
+        <p v-if="type === 'A'">优秀</p>
+        <p v-else-if="type === 'B'">良好</p>
+        <p v-else-if="type === 'C'">一般</p>
+        <p v-else>差</p>
+
+        <div v-show="flag">
+            测试
+        </div>
+        <button @click="flag= !flag">点击</button>
+        <!-- <p v-show="flag">测试</p> -->
+        <!-- <button @click="flag = !flag">点击</button> -->
+    </div>
+
+
+    <script>
+        const vm = {
+            data: function() {
+                return {
+                    num: Math.random(),
+                    type: 'A',
+                    flag: true
+                }
+            }
+        }
+        Vue.createApp(vm).mount('#app')
+    </script>
+</body>
+</html>
