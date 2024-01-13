@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1. 导入vue的脚本文件-->
+    <script src="https://unpkg.com/vue@3"></script>
+
+</head>
+<body>
+    <!-- 2. 声明要被 vue 控制的 DOM 区域-->
+    <div id="app">
+        {{message}}
+    </div>
+
+    <!-- 3. 创建 vue 的实例对象-->
+    <script>
+        const { createApp } = Vue
+        // 将下面的数据渲染到上面div中的id里面去
+        createApp({
+            data() {
+                 return {
+                    message: 'hello world!'
+                }
+            }
+        }).mount("#app")
+    </script>
+    
+
+    <!-- 其他创建方法1-->
+    <div id="app2">
+        {{message2}}
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message2: 'hello vikingar'
+                }
+            }
+        })
+        app.mount("#app2")
+    </script>
+
+    
+    <!-- 其他创建方法2-->
+    <div id="app3">
+        {{ message3 }}
+    </div>
+
+    <script>
+        const hello = {
+            data() {
+                return {
+                    message3: "hello niemandea"
+                }
+            }
+        }
+        const app2 = Vue.createApp(hello)
+        app2.mount("#app3")
+    </script>
+
+    
+    <!-- 其他创建方法3-->
+    <div id="app4">
+        {{message4}}
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    message4: "hello message4"
+                }
+            }
+        }).mount("#app4")
+    </script>
+</body>
+</html>
