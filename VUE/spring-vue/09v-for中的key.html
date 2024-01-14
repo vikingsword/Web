@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- v-model 双向绑定指令：当页面上的数据变化时，也会影响name上的值，而 :value 这种形式时单向的 -->
+        <input type="text" v-model="name">
+        <button @click="addNewUser">添加</button>
+
+        <ul>
+            <!-- key 要求是唯一的，一般将数据库中的主键查询出来 设置为 key -->
+            <li v-for="(user, index) in userList" :key="user.id">
+                <input type="checkbox"/> 姓名： {{user.name}}
+            </li>
+        </ul>
+    </div>
+
+
+    <script>
+        const vm = {
+            data: function() {
+                return {
+                    userList: [
+                        {id:1, name: "zs"},
+                        {id:2, name: "ls"}
+                    ],
+                    name: '',
+                    nextId: 3
+                }
+            },
+            methods: {
+                addNewUser() {
+                    // 在起始位置添加
+                    this.userList.unshift({id: this.nextId, name: this.name})
+                    this.name = ''
+                    this.nextId++
+                }
+            }
+        }
+
+        Vue.createApp(vm).mount('#app')
+    </script>
+</body>
+</html>
