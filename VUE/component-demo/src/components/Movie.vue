@@ -18,6 +18,9 @@
 
             }
         },
+        created: function() {
+            console.log("movie component created! ")
+        },
         methods: {
             addFavorite() {
                 alert("successfully")

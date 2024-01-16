@@ -6,13 +6,20 @@
     <!-- 注意这里要在title和rating前面加上v-bind或者:进行绑定-->
     <Movie v-for="movie in movies" :key="movie.id" :title="movie.title" :rating="movie.rating"></Movie>  
 
-    <Hello>{{hello}}</Hello>
+    <Hello></Hello>
+
+    <hr>
+    <Date></Date>
+    
   </div>
 </template>
 
 <script>
 import Movie from './components/Movie.vue'
 import Hello from './components/Hello.vue'
+import Date from './components/Date.vue'
+import axios from 'axios'
+
 export default {
   name: 'App',
   data: function(){
@@ -23,9 +30,20 @@ export default {
       ]
     }
   },
+  created: function(){
+    console.log("APP component created!")
+    axios.get("http://localhost:8081/all")
+    .then(function(resp){
+      console.log(resp)
+    })
+  },
+  mounted: function() {
+    console.log("APP 组件被挂载完毕，渲染到界面上了")
+  },
   components: {
     Movie,
-    Hello
+    Hello,
+    Date
   }
 }
 </script>
