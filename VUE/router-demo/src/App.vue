@@ -3,7 +3,10 @@
     <!-- 声明路由链接 -->
     <router-link to="/discover">发现音乐</router-link>
     <router-link to="/my">我的音乐</router-link>
-    <router-link to="/friend">关注</router-link>
+    <router-link to="/friends">关注</router-link>
+
+    <!--声明路由占位标签-->
+    <router-view></router-view>
   </div>
 </template>
 
