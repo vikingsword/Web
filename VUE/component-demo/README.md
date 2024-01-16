@@ -17,3 +17,6 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### github 下载的项目没有 node_modules, 只需要进入项目目
+### 使用 npm install 就自动下载 package.json 中的依赖了
