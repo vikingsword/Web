@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <img alt="Vue logo" :src="img">
   </div>
 </template>
 
@@ -9,14 +9,19 @@ import axios from 'axios'
 
 export default {
   name: 'App',
-  
+  data: function() {
+    return {
+      img: ""
+    }
+  },
   mounted:function() {
     axios.get("/product/search").then(
       res => {
         console.log(res)
+        this.img = res.data.data.img
       }
     )
-  }
+  } 
 }
 </script>
 

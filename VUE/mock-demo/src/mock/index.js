@@ -1,6 +1,6 @@
 import Mock from 'mockjs'
 
-Mock.mock('/product/search', {
+Mock.mock(RegExp('/product/search.*'), {
     "ret": 0,
     "data": {
         "mtime": "@datetime",
